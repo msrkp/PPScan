@@ -9,6 +9,5 @@ Client Side Protype pollution Scanner
 3. Visit the websites you want to test
 
 
-
-
+Currently, it only checks for vulnerable location parsers. 
 
