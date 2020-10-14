@@ -4,9 +4,9 @@
 Client Side Protype pollution Scanner
 
 
-![Example](./images/example.png)
+<img src="https://github.com/msrkp/PPScan/blob/main/images/example.png" width="300"/>
 
-![Example0](./images/example0.png)
+<img src="https://github.com/msrkp/PPScan/blob/main/images/example0.png" width="300"/>
 
 
 ### How to use?
