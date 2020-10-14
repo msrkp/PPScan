@@ -8,7 +8,11 @@
     "tabs",
     "storage",
     "http:\/\/*\/",
-    "https:\/\/*\/"
+    "https:\/\/*\/",
+     "<all_urls>",
+    "webRequest",
+    "webRequestBlocking",
+    "management"
   ],
   "background": {
     "scripts": ["scripts/background.js"],
@@ -26,8 +30,7 @@
     }
   ],
   "web_accessible_resources": [
-        "pages/iframe.html",
-        "scripts/exp.js"
+        "*"
   ],
   "browser_action": {
     "default_popup": "pages/popup.html"

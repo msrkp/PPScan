@@ -1,6 +1,36 @@
 
 var found = new Set();
 
+
+function isCSPHeader(headerName) {
+  return (headerName === 'CONTENT-SECURITY-POLICY');
+}
+
+function isXFrame(headerName) {
+  return (headerName === 'X-FRAME-OPTIONS');
+}
+// Listens on new request
+chrome.webRequest.onHeadersReceived.addListener((details) => {
+  for (let i = 0; i < details.responseHeaders.length; i += 1) {
+    if (isCSPHeader(details.responseHeaders[i].name.toUpperCase())) {
+      const csp = 'default-src * \'unsafe-inline\' \'unsafe-eval\' data: blob:; ';
+      details.responseHeaders[i].value = csp;
+    }
+    if(isXFrame(details.responseHeaders[i].name.toUpperCase())){
+      const xframe = 'foo';
+      details.responseHeaders[i].value = xframe;
+    }
+  }
+  return { // Return the new HTTP header
+    responseHeaders: details.responseHeaders,
+  };
+}, {
+  urls: ['<all_urls>']
+}, ['blocking', 'responseHeaders','extraHeaders']);
+
+
+
+
 function setNum(len) {
       chrome.browserAction.setBadgeText({"text": ''+len});
       if(len > 0) {
