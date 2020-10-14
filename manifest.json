@@ -7,12 +7,9 @@
     "permissions": [
     "tabs",
     "storage",
-    "http:\/\/*\/",
-    "https:\/\/*\/",
      "<all_urls>",
     "webRequest",
-    "webRequestBlocking",
-    "management"
+    "webRequestBlocking"
   ],
   "background": {
     "scripts": ["scripts/background.js"],
@@ -30,7 +27,8 @@
     }
   ],
   "web_accessible_resources": [
-        "*"
+        "pages/iframe.html",
+        "scripts/exp.js"
   ],
   "browser_action": {
     "default_popup": "pages/popup.html"

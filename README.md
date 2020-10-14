@@ -3,6 +3,12 @@
 
 Client Side Protype pollution Scanner
 
+
+![Example](./images/example.png)
+
+![Example0](./images/example0.png)
+
+
 ### How to use?
 2. Install addon 
 3. Visit the websites you want to test

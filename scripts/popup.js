@@ -3,6 +3,22 @@ var port = chrome.extension.connect({
 });
 
 function logger(){
+	chrome.storage.sync.get("toggle",function(data){
+			document.getElementById("toggle").value = data.toggle?"Disable":"Enable";
+		});
+	document.getElementById("toggle").onclick = function(){
+		chrome.storage.sync.get("toggle",function(data){
+            if(data.toggle){
+                chrome.storage.sync.set({ "toggle": false });
+                document.getElementById("toggle").value = "Enable";
+            }
+            else{
+                chrome.storage.sync.set({ "toggle": true });
+                document.getElementById("toggle").value = "Disable";
+            }
+        });
+	}
+
 	port.postMessage('send found urls');
 	console.log('send');
 	port.onMessage.addListener(function(found){
