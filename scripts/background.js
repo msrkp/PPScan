@@ -9,6 +9,9 @@ chrome.runtime.onInstalled.addListener(function() {
     chrome.storage.sync.set({toggle: true}, function() {
       console.log('toggle on');
     });
+    chrome.storage.sync.set({buster: false}, function() {
+      console.log('window mode off');
+    });
 });
 chrome.storage.sync.get("toggle",function(data){
   if(data.toggle){

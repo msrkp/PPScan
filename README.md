@@ -16,3 +16,11 @@ Client Side Protype pollution Scanner
 
 Currently, it only checks for vulnerable location parsers. 
 
+### Issues
+Have to bypass frame busting
+
+``  
+  window.self !== window.top && (window.top.location = window.location)
+``
+
+
