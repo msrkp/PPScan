@@ -28,11 +28,13 @@ window.addEventListener('message', function(event){
 							for(j = 0; j<2;j++){
 
 								var locasdf = new URL(url);
+
 								// debugger;
 								var iframe = document.createElement("iframe");
 								j?locasdf.searchParams.append(PAYLOADS[i][1],PAYLOADS[i][2]):locasdf.hash="#"+PAYLOADS[i][1]+"="+PAYLOADS[i][2];
 								iframe.name = "ppdeadbeef1"
-								iframe.src = locasdf.href;
+								console.log(decodeURI(locasdf.href));
+								iframe.src = decodeURI(locasdf.href);
 								// iframe.sandbox="allow-forms allow-scripts allow-same-origin"
 								document.documentElement.appendChild(iframe);
 							}

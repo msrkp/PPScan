@@ -24,3 +24,4 @@ Have to bypass frame busting
 ``
 
 
+Check frame-busting-workaround branch, added window mode which creates windows instead of iframes
