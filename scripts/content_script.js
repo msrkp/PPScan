@@ -21,7 +21,7 @@ chrome.storage.sync.get("toggle",function(data){
 						url.hash =  "__proto__[a0def12bce]=ddcb362f1d60&__proto__.a0def12bce=ddcb362f1d60&dummy"
 						location = url.href;
 
-					},3000)
+					},10 * 1000)
 				}
 				else if( loc.search('a0def12bce')!=-1){
 					setTimeout(function(){
@@ -30,7 +30,7 @@ chrome.storage.sync.get("toggle",function(data){
 							logger(location.href);
 						}
 						window.close();
-					},3000)
+					},10 * 1000)
 				}
 				else
 				{
@@ -53,7 +53,7 @@ chrome.storage.sync.get("toggle",function(data){
 						clearInterval(timerID);
 
 					}	
-				}, 30 * 1000); 
+				}, 10 * 1000); 
 
 			}
 		}
