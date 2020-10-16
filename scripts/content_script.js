@@ -10,7 +10,7 @@ chrome.storage.sync.get("toggle",function(data){
 			if(location.href.search("dummy")!=-1){
 				// hack for frame busting
 				loc = location.href;
-				if(loc.indexOf('e32a5ec9c99')>=0 && loc.search('a0def12bce')==-1)	
+				if(loc.indexOf('e32a5ec9c99')>=0 && loc.search('a0def12bce')==-1)
 				{
 					setTimeout(function(){
 						if((Object.prototype.e32a5ec9c99 == "ddcb362f1d60"))
@@ -40,22 +40,22 @@ chrome.storage.sync.get("toggle",function(data){
 					location = url.href;
 				}
 			}
+
 			window.onload = function(){
 				if((Object.prototype.e32a5ec9c99 == "ddcb362f1d60"  || Object.prototype.a0def12bce == "ddcb362f1d60")){
 						console.log(`%c--------------------Found one------------------\n${location.href}`, `color:red`);
 						logger(location.href);
 				}
-
-				var timerID = setInterval(function() {
-					if((Object.prototype.e32a5ec9c99 == "ddcb362f1d60" || Object.prototype.a0def12bce == "ddcb362f1d60")){
-						console.log(`%c--------------------Found one------------------\n${location.href}`, `color:red`);
-						logger(location.href);
-						clearInterval(timerID);
-
-					}	
-				}, 10 * 1000); 
-
 			}
+
+			var timerID = setInterval(function() {
+				if((Object.prototype.e32a5ec9c99 == "ddcb362f1d60" || Object.prototype.a0def12bce == "ddcb362f1d60")){
+					console.log(`%c--------------------Found one------------------\n${location.href}`, `color:red`);
+					logger(location.href);
+					clearInterval(timerID);
+
+				}
+			}, 10 * 1000);
 		}
 		if(window.name.search("ppdeadbeef")==-1){
 			var iframe = document.createElement('iframe');
