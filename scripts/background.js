@@ -4,22 +4,34 @@
 
 var found = new Set();
 
+function setNum(len) {
+      chrome.browserAction.setBadgeText({"text": ''+len});
+      if(len > 0) {
+        chrome.browserAction.setBadgeBackgroundColor({ color: [255, 0, 0, 255]});
+      } else {
+        chrome.browserAction.setBadgeBackgroundColor({ color: [0, 0, 255, 0] });
+      }
+}
+function isCSPHeader(headerName) {
+  return (headerName === 'CONTENT-SECURITY-POLICY');
+}
+
+function isXFrame(headerName) {
+  return (headerName === 'X-FRAME-OPTIONS');
+}
 
 chrome.runtime.onInstalled.addListener(function() {
     chrome.storage.sync.set({toggle: true}, function() {
       console.log('toggle on');
     });
+    chrome.storage.sync.set({buster: false}, function() {
+      console.log('window mode off');
+    });
 });
 chrome.storage.sync.get("toggle",function(data){
   if(data.toggle){
 
-    function isCSPHeader(headerName) {
-      return (headerName === 'CONTENT-SECURITY-POLICY');
-    }
 
-    function isXFrame(headerName) {
-      return (headerName === 'X-FRAME-OPTIONS');
-    }
     // Listens on new request
     chrome.webRequest.onHeadersReceived.addListener((details) => {
       for (let i = 0; i < details.responseHeaders.length; i += 1) {
@@ -42,14 +54,7 @@ chrome.storage.sync.get("toggle",function(data){
 
 
 
-    function setNum(len) {
-          chrome.browserAction.setBadgeText({"text": ''+len});
-          if(len > 0) {
-            chrome.browserAction.setBadgeBackgroundColor({ color: [255, 0, 0, 255]});
-          } else {
-            chrome.browserAction.setBadgeBackgroundColor({ color: [0, 0, 255, 0] });
-          }
-    }
+
 
 
 
@@ -69,4 +74,5 @@ chrome.storage.sync.get("toggle",function(data){
     })
 
   }
+    
 });

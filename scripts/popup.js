@@ -5,7 +5,10 @@ var port = chrome.extension.connect({
 function logger(){
 	chrome.storage.sync.get("toggle",function(data){
 			document.getElementById("toggle").value = data.toggle?"Disable":"Enable";
-		});
+	});
+	chrome.storage.sync.get("buster",function(data){
+			document.getElementById("buster").value = data.buster?"Disable Window Mode":"Enable Window Mode";
+	});
 	document.getElementById("toggle").onclick = function(){
 		chrome.storage.sync.get("toggle",function(data){
             if(data.toggle){
@@ -15,6 +18,18 @@ function logger(){
             else{
                 chrome.storage.sync.set({ "toggle": true });
                 document.getElementById("toggle").value = "Disable";
+            }
+        });
+	}
+	document.getElementById("buster").onclick = function(){
+		chrome.storage.sync.get("buster",function(data){
+            if(data.buster){
+                chrome.storage.sync.set({ "buster": false });
+                document.getElementById("buster").value = "Enable Window Mode";
+            }
+            else{
+                chrome.storage.sync.set({ "buster": true });
+                document.getElementById("buster").value = "Disable Window Mode";
             }
         });
 	}
