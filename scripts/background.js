@@ -20,6 +20,10 @@ function isXFrame(headerName) {
   return (headerName === 'X-FRAME-OPTIONS');
 }
 
+function isCaching(headerName){
+  return (headerName === 'If-None-Match')
+}
+
 chrome.runtime.onInstalled.addListener(function() {
     chrome.storage.sync.set({toggle: true}, function() {
       console.log('toggle on');
@@ -40,8 +44,12 @@ chrome.storage.sync.get("toggle",function(data){
           details.responseHeaders[i].value = csp;
         }
         if(isXFrame(details.responseHeaders[i].name.toUpperCase())){
-          const xframe = 'foo';
-          details.responseHeaders[i].value = xframe;
+          details.responseHeaders[i].name ='foo';
+          
+        }
+        if(isCaching(details.responseHeaders[i].name.toUpperCase())){
+          details.responseHeaders[i].name ='foo';
+          
         }
       }
       return { // Return the new HTTP header
@@ -50,12 +58,6 @@ chrome.storage.sync.get("toggle",function(data){
     }, {
       urls: ['<all_urls>']
     }, ['blocking', 'responseHeaders','extraHeaders']);
-
-
-
-
-
-
 
 
     chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {

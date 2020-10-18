@@ -18,5 +18,15 @@ Client Side Protype pollution Scanner
 Window mode is useful when the application uses frame busting.
 
 
+### Examples
+
+Install addon and visit below urls.
+1. http://output.jsbin.com/buxifuf
+2. http://output.jsbin.com/depecug
+
+Currently, it only checks for vulnerable location parsers. 
+
+
+
 Currently, it only checks for vulnerable location parsers. 
 
