@@ -1,6 +1,9 @@
 var port = chrome.extension.connect({
 	name: "logger"
 });
+port.onDisconnect.addListener(obj => {
+	console.log('disconnected port');
+})
 
 function logger(){
 	chrome.storage.sync.get("toggle",function(data){

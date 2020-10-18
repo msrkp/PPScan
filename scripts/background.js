@@ -24,6 +24,22 @@ function isCaching(headerName){
   return (headerName === 'If-None-Match')
 }
 
+chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+  console.log(msg);
+  found.add(msg);
+  setNum(found.size);
+});
+
+chrome.extension.onConnect.addListener(function(port) {
+console.log('connected ', port);
+if( port.name == "logger"){
+  port.onMessage.addListener(function(msg) {
+    console.log(found);
+    port.postMessage({found:[...found]});
+  });
+}
+});
+
 chrome.runtime.onInstalled.addListener(function() {
     chrome.storage.sync.set({toggle: true}, function() {
       console.log('toggle on');
@@ -35,7 +51,7 @@ chrome.runtime.onInstalled.addListener(function() {
 chrome.storage.sync.get("toggle",function(data){
   if(data.toggle){
 
-
+    
     // Listens on new request
     chrome.webRequest.onHeadersReceived.addListener((details) => {
       for (let i = 0; i < details.responseHeaders.length; i += 1) {
@@ -58,22 +74,6 @@ chrome.storage.sync.get("toggle",function(data){
     }, {
       urls: ['<all_urls>']
     }, ['blocking', 'responseHeaders','extraHeaders']);
-
-
-    chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
-        console.log(msg);
-        found.add(msg);
-        setNum(found.size);
-    });
-
-
-
-    chrome.extension.onConnect.addListener(function(port) {
-      port.onMessage.addListener(function(msg) {
-        console.log(found);
-        port.postMessage({found:[...found]});
-      });
-    })
 
   }
     
