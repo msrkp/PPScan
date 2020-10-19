@@ -18,8 +18,6 @@ Client Side Protype pollution Scanner
 
 
 ### Examples
-
-Install addon and visit below urls.
 1. https://msrkp.github.io/pp/1.html
 2. https://msrkp.github.io/pp/2.html
 
@@ -33,4 +31,6 @@ https://msrkp.github.io/pp/3.html
 If, you see XFO or CSP errors reload the extension. 
 Extension tested on chrome version 86.
 
+### Found PP? What's Next?
+Check for the gadgets here https://github.com/BlackFan/client-side-prototype-pollution
 
