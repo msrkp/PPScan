@@ -15,11 +15,13 @@ Client Side Protype pollution Scanner
 2. Install addon 
 3. Visit the websites you want to test
 
+It only checks for vulnerable location parsers.
 
 
 ### Examples
 1. https://msrkp.github.io/pp/1.html
 2. https://msrkp.github.io/pp/2.html
+
 
 
 ### Why window mode?
