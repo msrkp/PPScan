@@ -21,7 +21,7 @@ function isXFrame(headerName) {
 }
 
 function isCaching(headerName){
-  return (headerName === 'If-None-Match')
+  return (headerName === 'IF-NONE-MATCH');
 }
 
 chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
