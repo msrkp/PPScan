@@ -12,16 +12,19 @@ Client Side Protype pollution Scanner
 
 
 ### How to use?
-1. Clone the repo
-2. Install addon 
-
-In chrome,
+<ol>
+    <li>Clone the repo</li>
+    <li>Install addon
     
-   a. Go to More Tools -> Extenstions
-   b. Enable Developer Mode
-   c. Click on "Load unpacked" and select the cloned repo folder.
+   * In chrome,
+   * Go to More Tools -> Extenstions 
+   * Enable Developer Mode 
+   * Click on "Load unpacked" and select the cloned repo folder. 
 
-3. Visit the websites you want to test
+  </li> 
+  <li>Visit the websites you want to test</li>
+</ol>
+
 
 It only checks for vulnerable location parsers.
 
