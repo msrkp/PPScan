@@ -1,0 +1,289 @@
+[
+    {
+        "library": "Purl (jQuery-URL-Parser)",
+        "pattern": "(String\\(\\w+\\)\\.split\\(\\/&\\|;\\/\\)\\,\\s*function\\()",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "CanJS deparam",
+        "pattern": "(\\/\\(\\[\\^\\\\[\\\\]\\]\\+\\)\\|\\(\\\\[\\\\]\\)\\/g\\s*)",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "MooTools More",
+        "pattern": "(\\.substr\\(0,\\s*\\w+\\s*-\\s*1\\)\\.match\\(\\/\\(\\[\\^\\\\]\\?\\[\\]\\+\\|\\(\\B\\)\\(\\?\\=\\\\]\\)\\)\\/g\\))",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "jQuery BBQ (deparam)",
+        "pattern": "(\\$\\.each\\(\\s*\\w+\\.replace\\(\\s*\\/\\\\+\\/g\\s*,\\s*['\"] ['\"]\\s*\\)\\.split\\(\\s*['\"]&['\"]\\s*\\))",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "deparam #1",
+        "pattern": "(\\s*\\/\\\\[\\/\\.test\\(\\s*\\w+\\[0\\]\\s*\\)\\s*&&\\s*\\/\\\\]\\$\\/\\.test\\(\\s*\\w+\\[\\s*\\w+\\s*\\]\\s*\\)\\s*)",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "deparam #2",
+        "pattern": "(['\"]\\[\\]['\"]\\s*===\\s*\\w+\\s*\\?\\s*\\w+\\.push\\(\\w+\\)\\s*:\\s*\\w+\\[\\w+\\]\\s*=\\s*\\w+)",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "backbone-query-parameters #2",
+        "pattern": "(\\s*(\\w+)\\s*=\\s*\u0002\\[(\\w+)\\]\\s*=\\s*\u0002\\[\u0003\\]\\s*\\|\\|\\s*\\{\\})",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "V4Fire Core",
+        "pattern": "(\\w+\\s*=\\s*\\/\\\\[\\(\\[\\^\\\\]\\]\\*\\)\\]\\/g)",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "jQuery Sparkle",
+        "pattern": "(\\w+\\s*=\\s*\\w+\\.split\\(\\/\\\\&\\(amp\\\\;\\)\\?\\/\\))",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "jQuery query-object",
+        "pattern": "(\\/\\^\\(\\[\\^\\[\\]\\+\\)\\(\\\\[\\.\\*\\\\]\\)\\?\\$\\/\\.exec\\(\\s*\\w+\\s*\\))",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "queryToObject",
+        "pattern": "(\\.match\\(\\/\\(\\^\\[\\^\\[\\]\\+\\)\\(\\\\[\\.\\*\\\\]\\$\\)\\?\\/\\))" ,
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "getJsonFromUrl",
+        "pattern": "(\\?\\s*decodeURIComponent\\(\\s*\\w+\\.substr\\(\\s*\\w+\\s*\\+\\s*1\\)\\)\\s*:\\s*['\"]['\"])",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "Unknown lib #1",
+        "pattern": "(\\w+\\.replace\\(\\s*['\"]\\[\\]['\"]\\s*,\\s*['\"]\\[['\"]\\.concat\\()",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "Segment analytics.js #1",
+        "pattern": "(\\w+\\s*=\\s*\\/\\(\\w\\+\\)\\\\[\\(\\d\\+\\)\\\\]\\/)",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "Segment analytics.js #1",
+        "pattern": "(\\(\\w+\\s*=\\s*\\w+\\.exec\\(\\w+\\)\\)\\s*\\?\\s*\\(\\s*\\w+\\[\\w+\\[1\\]\\]\\s*=\\s*\\w+\\[\\w+\\[1\\]\\]\\s*\\|\\|\\s*\\[\\])",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "YUI 3 querystring-parse",
+        "pattern": "(\\/\\(\\.\\*\\)\\\\[\\(\\[\\^\\\\]\\]\\*\\)\\\\]\\$\\/\\.exec\\(\\w+\\))",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "flow.js",
+        "pattern": "(\\w+\\s*=\\s*\\/\\\\[\\?\\(\\[\\^\\\\]\\[\\]\\+\\)\\\\]\\?\\/g)",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "jquery.parseParams.js",
+        "pattern": "(\\w+\\s*=\\s*\\w+\\.split\\(\\/\\\\.\\(\\.\\+\\)\\?\\/\\)\\[1\\])",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "wishpond decodeQueryString",
+        "pattern": "(\\w+\\s*=\\s*\\w+\\(\\w+\\[1\\]\\.slice\\(\\w+\\s*\\+\\s*1,\\s*\\w+\\[1\\]\\.indexOf\\(['\"]\\]['\"],\\s*\\w+\\)\\)\\))",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "JS equivalent of PHPs parse_str",
+        "pattern": "(\\w+\\s*=\\s*\\w+\\.slice\\(0,\\s*\\w+\\.indexOf\\(['\"]\\x?0?0['\"]\\)\\))",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "Unknown Lib #2",
+        "pattern": "(\"\\[\\]\"\\s*===\\s*\\w+\\.substring\\(\\w+\\.length\\s*-\\s*2\\)[\\s\\?\\)\\(]*(?:\\w+\\[)?\\w+\\s*=\\s*\\w+\\.substring\\(0,\\s*\\w+\\.length\\s*-\\s*2\\))",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "Unknown Lib #3",
+        "pattern": "(\\w+\\.match\\(\\/\\(\\^\\[\\^\\\\[\\]\\+\\)\\(\\\\[\\.\\*\\\\]\\$\\)\\?\\/\\))",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "Unknown Lib #4",
+        "pattern": "(\\(\\[\\^\\\\\\[\\^\\\\\\]\\]\\+\\)\\(\\(\\\\\\[\\(\\^\\\\\\[\\^\\\\\\]\\)\\\\\\]\\)\\*\\))",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    },
+    {
+        "library": "Unknown Lib #5 inbound setUrlParams",
+        "pattern": "(['\"]-1['\"]\\s*==\\s*\\w+\\[1\\]\\.indexOf\\(['\"]\\[['\"]\\))",
+        "url": "https://github.com/BlackFan/client-side-prototype-pollution",
+        "authors": [
+            {
+                "name": "",
+                "company": "",
+                "twitterUrl": ""
+            }
+        ]
+    }
+]
