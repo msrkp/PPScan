@@ -12,7 +12,7 @@
     "webRequestBlocking"
   ],
   "background": {
-    "scripts": ["scripts/background.js"],
+    "page": "pages/background.html",
     "persistent": true
   },
   "content_scripts": [

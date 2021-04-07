@@ -1,8 +1,52 @@
-
-
-
-
+const dbUrl = "https://raw.githubusercontent.com/msrkp/PPScan/main/db.json";
+var passiveFound = {}
+var db;
 var found = new Set();
+
+var download = (url) => {
+  return new Promise((resolve, reject) => {
+    fetch(url).then( 
+      response => response.text() 
+      ).then( data => {
+          resolve(data);
+        })
+        .catch( err => {
+          reject(new Error('Error downloading '+ url ))
+        })
+  });
+}
+
+var downloadDb = (url) => {
+  return new Promise((resolve, reject) => {
+    fetch(url).then( 
+      response => response.json() 
+      ).then( data => {
+          db = data;
+          resolve('success');
+        })
+        .catch( err => {
+          reject(new Error('Error downloading '+ url ))
+        })
+  });
+}
+
+var check = (req) => {
+  var url = new URL(req.url);
+  if(url.protocol == "http:" || url.protocol == "https:"){
+    download(url).then( resp => {
+        var tmp = patternMatch(resp, db);
+        if(tmp.length > 0){
+          console.log(req,req["initiator"]);
+          found.add("Script from "+ new URL(req["url"]).origin  +" using " + tmp + " at "+req["initiator"] +" is vulnerable!" )
+          setNum(found.size);
+          return;
+        }
+    })
+  }
+  
+}
+
+
 
 function setNum(len) {
       chrome.browserAction.setBadgeText({"text": ''+len});
@@ -31,21 +75,24 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
 });
 
 chrome.extension.onConnect.addListener(function(port) {
-console.log('connected ', port);
-if( port.name == "logger"){
-  port.onMessage.addListener(function(msg) {
-    console.log(found);
-    port.postMessage({found:[...found]});
-  });
-}
+  console.log('connected ', port);
+  if( port.name == "logger"){
+    port.onMessage.addListener(function(msg) {
+      console.log(found);
+      port.postMessage({found:[...found]});
+    });
+  }
 });
 
 chrome.runtime.onInstalled.addListener(function() {
-    chrome.storage.sync.set({toggle: true}, function() {
-      console.log('toggle on');
+    chrome.storage.sync.set({toggle: false}, function() {
+      console.log('toggle off');
     });
     chrome.storage.sync.set({buster: false}, function() {
       console.log('window mode off');
+    });
+    chrome.storage.sync.set({passive: true}, function() {
+      console.log('passive mode on');
     });
 });
 chrome.storage.sync.get("toggle",function(data){
@@ -77,4 +124,24 @@ chrome.storage.sync.get("toggle",function(data){
 
   }
     
+});
+
+chrome.storage.sync.get("passive",function(data){
+  if(data.passive){
+    downloadDb(dbUrl).then( () => {
+      var filter= {
+        urls: ["<all_urls>"],
+        types: ["script"]
+      };
+      var scan = (req) => {
+        if(req.method == "GET" )
+        {
+          check(req);  
+        }
+      }
+
+      chrome.webRequest.onCompleted.addListener(scan, filter, []);
+    })
+    .catch(e => console.log(e));
+  } 
 });

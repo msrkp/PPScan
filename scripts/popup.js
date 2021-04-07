@@ -1,26 +1,32 @@
+const dbUrl = "https://raw.githubusercontent.com/msrkp/PPScan/main/db.json";
+
 var port = chrome.extension.connect({
 	name: "logger"
 });
-port.onDisconnect.addListener(obj => {
-	console.log('disconnected port');
-})
+
 
 function logger(){
 	chrome.storage.sync.get("toggle",function(data){
-			document.getElementById("toggle").value = data.toggle?"Disable":"Enable";
+			document.getElementById("toggle").value = data.toggle?"Disable Active Mode":"Enable Active Mode";
 	});
 	chrome.storage.sync.get("buster",function(data){
 			document.getElementById("buster").value = data.buster?"Disable Window Mode":"Enable Window Mode";
 	});
+	chrome.storage.sync.get("passive",function(data){
+		document.getElementById("passive").value = data.passive?"Disable Passive Mode":"Enable Passive Mode";
+	});
 	document.getElementById("toggle").onclick = function(){
 		chrome.storage.sync.get("toggle",function(data){
             if(data.toggle){
-                chrome.storage.sync.set({ "toggle": false });
-                document.getElementById("toggle").value = "Enable";
+				chrome.storage.sync.set({ "toggle": false });
+				chrome.storage.sync.set({ "buster": false });
+				document.getElementById("toggle").value = "Enable Active Mode";
+				document.getElementById("buster").style.visibility = "hidden";
             }
             else{
-                chrome.storage.sync.set({ "toggle": true });
-                document.getElementById("toggle").value = "Disable";
+				chrome.storage.sync.set({ "toggle": true });
+				document.getElementById("buster").style.visibility = "visible";
+                document.getElementById("toggle").value = "Disable Active Mode";
             }
         });
 	}
@@ -33,6 +39,19 @@ function logger(){
             else{
                 chrome.storage.sync.set({ "buster": true });
                 document.getElementById("buster").value = "Disable Window Mode";
+            }
+        });
+	}
+
+	document.getElementById("passive").onclick = function(){
+		chrome.storage.sync.get("passive",function(data){
+            if(data.passive){
+                chrome.storage.sync.set({ "passive": false });
+                document.getElementById("passive").value = "Enable Passive Mode";
+            }
+            else{
+                chrome.storage.sync.set({ "passive": true });
+                document.getElementById("passive").value = "Disable Passive Mode";
             }
         });
 	}

@@ -1,3 +1,7 @@
+const dbUrl = "https://raw.githubusercontent.com/msrkp/PPScan/main/db.json";
+
+
+
 chrome.storage.sync.get("toggle",function(data){
     if(data.toggle){
 		var inject = function check(){
