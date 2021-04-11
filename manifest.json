@@ -1,36 +1,35 @@
 {
-  "name": "PPScan",
-  "version": "1.0",
-  "manifest_version": 2,
-  "description": "Client Side Prototype Pollution Scanner",
-  "options_page": "pages/options.html",
+    "name": "PPScan",
+    "version": "1.0",
+    "manifest_version": 2,
+    "description": "Client Side Prototype Pollution Scanner",
+    "options_page": "pages/options.html",
     "permissions": [
-    "tabs",
-    "storage",
-     "<all_urls>",
-    "webRequest",
-    "webRequestBlocking"
-  ],
-  "background": {
-    "page": "pages/background.html",
-    "persistent": true
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "scripts/content_script.js"
-      ],
-      "all_frames": true
-    }
-  ],
-  "web_accessible_resources": [
+        "tabs",
+        "storage",
+        "<all_urls>",
+        "webRequest",
+        "webRequestBlocking",
+        "activeTab"
+    ],
+    "background": {
+        "page": "pages/background.html",
+        "persistent": true
+    },
+    "content_scripts": [{
+        "matches": [
+            "<all_urls>"
+        ],
+        "js": [
+            "scripts/content_script.js"
+        ],
+        "all_frames": true
+    }],
+    "web_accessible_resources": [
         "pages/iframe.html",
         "scripts/exp.js"
-  ],
-  "browser_action": {
-    "default_popup": "pages/popup.html"
-  }
+    ],
+    "browser_action": {
+        "default_popup": "pages/popup.html"
+    }
 }
