@@ -1,5 +1,3 @@
-const dbUrl = "https://raw.githubusercontent.com/msrkp/PPScan/main/db.json";
-
 function init() {
     window.ppscan = () => {
         console.log(`%c--------------------gadget for ${location.hostname} found ------------------\n>> ${location.href}`, `color:red`);
@@ -12,12 +10,29 @@ script.setAttribute('type', 'text/javascript')
 script.appendChild(document.createTextNode(inject));
 document.documentElement.appendChild(script);
 
-document.addEventListener('TriggerBrute', (...x) => {
+document.addEventListener('TriggerBrute', () => {
     var iframe = document.createElement('iframe');
     iframe.addEventListener('load', () => {
         iframe.contentWindow.postMessage({
             url: location.href,
-            foo: "baz"
+            foo: 'baz',
+            type: 'search'
+        }, '*');
+    }, false);
+    iframe.src = chrome.runtime.getURL('/pages/iframe.html');
+    iframe.name = "ppdeadbeef";
+    iframe.id = "ppbada55";
+    iframe.style.display = "none";
+    document.body.appendChild(iframe);
+});
+
+document.addEventListener('TriggerBruteHash', () => {
+    var iframe = document.createElement('iframe');
+    iframe.addEventListener('load', () => {
+        iframe.contentWindow.postMessage({
+            url: location.href,
+            foo: 'baz',
+            type: 'hash'
         }, '*');
     }, false);
     iframe.src = chrome.runtime.getURL('/pages/iframe.html');

@@ -1,5 +1,3 @@
-const dbUrl = "https://raw.githubusercontent.com/msrkp/PPScan/main/db.json";
-
 var port = chrome.extension.connect({
     name: "logger"
 });
@@ -59,25 +57,41 @@ function logger() {
         });
     }
 
+    document.getElementById("brutehash").onclick = function() {
+        chrome.tabs.executeScript(null, {
+            code: `document.dispatchEvent(new CustomEvent('TriggerBruteHash'));`
+        });
+    }
+
+    document.getElementById("clear").onclick = function() {
+        port.postMessage('clearLog');
+    }
+
     port.postMessage('send found urls');
-    console.log('send');
+
     port.onMessage.addListener(function(found) {
         listFound(found.found);
-    })
+    });
 
 
 }
 
 window.onload = logger
 
-function listFound(found) {
-    var x = document.getElementById("list")
-    for (i = 0; i < found.length; i++) {
-        var li = document.createElement("li");
-        var url = document.createElement("b");
-        url.innerText = found[i];
-        li.appendChild(url)
-        x.appendChild(li);
-    }
+const foundLabel = document.getElementById('found-label');
+const foundList = document.getElementById('found-list');
 
+function listFound(found) {
+    foundList.innerHTML = '';
+    foundLabel.style.display = foundList.style.display = found.length > 0 ? 'block' : 'none';
+
+    found.forEach((line) => {
+        const li = document.createElement("li");
+        const url = document.createElement("b");
+
+        url.innerText = line;
+
+        li.appendChild(url)
+        foundList.appendChild(li);
+    });
 }
