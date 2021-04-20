@@ -19,10 +19,10 @@ function logger() {
                 chrome.storage.sync.set({ "toggle": false });
                 chrome.storage.sync.set({ "buster": false });
                 document.getElementById("toggle").value = "Enable Active Mode";
-                document.getElementById("buster").style.visibility = "hidden";
+                document.getElementById("buster").style.display = "none";
             } else {
                 chrome.storage.sync.set({ "toggle": true });
-                document.getElementById("buster").style.visibility = "visible";
+                document.getElementById("buster").style.display = "block";
                 document.getElementById("toggle").value = "Disable Active Mode";
             }
         });

@@ -1,10 +1,13 @@
-<!DOCTYPE html>
 <html>
 
 <head>
     <style>
         div input {
             display: inline-block;
+        }
+        
+        input {
+            font-size: 12px;
         }
         
         #found-label {
@@ -36,8 +39,8 @@
         }
         
         th {
-            background: #626970;
-            color: white;
+            background: #e9e9e9;
+            color: #363636;
             text-transform: capitalize;
         }
         
@@ -93,22 +96,40 @@
 
 <body>
     <div>
-        <input id="toggle" value="Disable" type="button" />
-        <input type="button" id="buster" style="visibility: hidden;" value="Enable Window Mode"><br>
-        <input type="button" id="passive" value="Enable Passive Mode"><br>
-        <h3>Brute Gadgets: </h3><input type="button" id="brute" value="Search"><input type="button" id="brutehash" value="Hash"><br>
+        <h3 style="
+    float: left;
+    margin: 8px 2px;
+">Mode : </h3>
+        <input id="toggle" value="Enable Active Mode" type="button" style="
+    margin: 8px 2px;
+    margin-left: 12px;
+">
+        <input type="button" id="buster" style="display: none;" value="Enable Window Mode">
+        <input type="button" id="passive" value="Disable Passive Mode"><br>
+        <h3 style="
+    float: left;
+    margin: 8px 2px;
+">Brute Gadgets : </h3><input type="button" id="brute" value="Search" style="margin: 9px 4px;margin-left: 13px;"><input type="button" id="brutehash" value="Hash" style="
+    margin: 9px 2px;
+"><br>
     </div>
 
-    <h3 id="found-label" style="margin-bottom: 16px;">Found (<a href="#" id="clear" value="Clear">Clear</a>):</h3>
+    <h3 id="found-label" style="margin-bottom: 16px; display: block;">Found (<a href="#" id="clear" value="Clear">Clear</a>) </h3>
     <!-- <ol ></ol> -->
-    <table id="found-list">
-        <tr>
-            <th>origin</th>
-            <th>type</th>
-            <th>location</th>
-        </tr>
+    <table id="found-list" style="display: block;">
+        <tbody>
+            <tr>
+                <th>origin</th>
+                <th>type</th>
+                <th>location</th>
+            </tr>
+        </tbody>
     </table>
     <script type="text/javascript" src="/scripts/popup.js"></script>
+
+
+
+
 </body>
 
 </html>
