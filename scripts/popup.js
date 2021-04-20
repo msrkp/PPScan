@@ -19,10 +19,10 @@ function logger() {
                 chrome.storage.sync.set({ "toggle": false });
                 chrome.storage.sync.set({ "buster": false });
                 document.getElementById("toggle").value = "Enable Active Mode";
-                document.getElementById("buster").style.visibility = "hidden";
+                document.getElementById("buster").style.display = "none";
             } else {
                 chrome.storage.sync.set({ "toggle": true });
-                document.getElementById("buster").style.visibility = "visible";
+                document.getElementById("buster").style.display = "block";
                 document.getElementById("toggle").value = "Disable Active Mode";
             }
         });
@@ -82,16 +82,13 @@ const foundLabel = document.getElementById('found-label');
 const foundList = document.getElementById('found-list');
 
 function listFound(found) {
-    foundList.innerHTML = '';
+    // foundList.innerHTML = '';
     foundLabel.style.display = foundList.style.display = found.length > 0 ? 'block' : 'none';
 
-    found.forEach((line) => {
-        const li = document.createElement("li");
-        const url = document.createElement("b");
-
-        url.innerText = line;
-
-        li.appendChild(url)
-        foundList.appendChild(li);
+    found.forEach((str) => {
+        const line = JSON.parse(str)
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td><a target="_blank" href="${line['domain']}">${new URL(line['domain']).hostname}</a></td><td>${line['type']}</td><td><a target="_blank" href="${line['file']}">${line['file']}:${line['lineCol']}</a></td>`;
+        foundList.appendChild(tr);
     });
 }

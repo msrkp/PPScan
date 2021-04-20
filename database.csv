@@ -1,74 +1,82 @@
 # Purl
-Purl|regex|(String\(\w+\)\.split\(\/&\|;\/\)\,\s*function\()
+Purl [1]|regex|(String\(\w+\)\.split\(\/&\|;\/\)\,\s*function\()
 
 # CanJS deparam
-CanJS deparam|regex|(\/\(\[\^\\\[\\\]\]\+\)\|\(\\\[\\\]\)\/g\s*)
+CanJS deparam [1]|regex|(\/\(\[\^\\\[\\\]\]\+\)\|\(\\\[\\\]\)\/g\s*)
 
 # MooTools More
-MooTools More|regex|(\.substr\(0,\s*\w+\s*-\s*1\)\.match\(\/\(\[\^\\\]\\?\[\]\+\|\(\\B\)\(\?\=\\\]\)\)\/g\))
+MooTools More [1]|regex|(\.substr\(0,\s*\w+\s*-\s*1\)\.match\(\/\(\[\^\\\]\\?\[\]\+\|\(\\B\)\(\?\=\\\]\)\)\/g\))
 
 # jQuery BBQ
-jQuery BBQ (deparam)|regex|(\$\.each\(\s*\w+\.replace\(\s*\/\\\+\/g\s*,\s*[\'\"] [\'\"]\s*\)\.split\(\s*[\'\"]&[\'\"]\s*\))
+jQuery BBQ [1]|regex|(\$\.each\(\s*\w+\.replace\(\s*\/\\\+\/g\s*,\s*[\'\"] [\'\"]\s*\)\.split\(\s*[\'\"]&[\'\"]\s*\))
+jQuery BBQ [2]|regex|jQuery BBQ
 
 # deparam
-deparam 1|regex|(\s*\/\\\[\/\.test\(\s*\w+\[0\]\s*\)\s*&&\s*\/\\\]\$\/\.test\(\s*\w+\[\s*\w+\s*\]\s*\)\s*)
-deparam 2|regex|([\'\"]\[\][\'\"]\s*===\s*\w+\s*\?\s*\w+\.push\(\w+\)\s*:\s*\w+\[\w+\]\s*=\s*\w+)
+deparam [1]|regex|(\s*\/\\\[\/\.test\(\s*\w+\[0\]\s*\)\s*&&\s*\/\\\]\$\/\.test\(\s*\w+\[\s*\w+\s*\]\s*\)\s*)
+deparam [2]|regex|([\'\"]\[\][\'\"]\s*===\s*\w+\s*\?\s*\w+\.push\(\w+\)\s*:\s*\w+\[\w+\]\s*=\s*\w+)
 
 # backbone query parameters
-backbone-query-parameters #2|regex|(\s*(\w+)\s*=\s*\2\[(\w+)\]\s*=\s*\2\[\3\]\s*\|\|\s*\{\})
+backbone-query-parameters [2]|regex|(\s*(\w+)\s*=\s*\2\[(\w+)\]\s*=\s*\2\[\3\]\s*\|\|\s*\{\})
 
 # V4Fire Core
-V4Fire Core|regex|(\w+\s*=\s*\/\\\[\(\[\^\\\]\]\*\)\]\/g)
+V4Fire Core [1]|regex|(\w+\s*=\s*\/\\\[\(\[\^\\\]\]\*\)\]\/g)
 
 # jQuery Sparkle
-jQuery Sparkle|regex|(\w+\s*=\s*\w+\.split\(\/\\\&\(amp\\\;\)\?\/\))
+jQuery Sparkle [1]|regex|(\w+\s*=\s*\w+\.split\(\/\\\&\(amp\\\;\)\?\/\))
 
 # jQuery query-object
-jQuery query-object 1|regex|(\/\^\(\[\^\[\]\+\)\(\\\[\.\*\\\]\)\?\$\/\.exec\(\s*\w+\s*\))
-jQuery query-object 2|text|/* jQuery querystring plugin */
-jQuery query-object 3|text|/^([^[]+?)(\[.*\])?$/.exec(
+jQuery Query-Object [1]|regex|(\/\^\(\[\^\[\]\+\)\(\\\[\.\*\\\]\)\?\$\/\.exec\(\s*\w+\s*\))
+jQuery Query-Object [2]|text|/* jQuery querystring plugin */
+jQuery Query-Object [3]|text|/^([^[]+?)(\[.*\])?$/.exec(
 
 # queryToObject
-queryToObject|regex|(\.match\(\/\(\^\[\^\[\]\+\)\(\\\[\.\*\\\]\$\)\?\/\))
+queryToObject [1]|regex|(\.match\(\/\(\^\[\^\[\]\+\)\(\\\[\.\*\\\]\$\)\?\/\))
 
 # fera.ai (getJsonFromUrl)
-cdn.fera.ai|regex|(\?\s*decodeURIComponent\(\s*\w+\.substr\(\s*\w+\s*\+\s*1\)\)\s*:\s*[\'\"][\'\"])
-cdn.fera.ai|text|getFeraActionParams
-cdn.fera.ai|text|cdn.fera.ai/js/fera.js
+cdn.fera.ai [1]|regex|(\?\s*decodeURIComponent\(\s*\w+\.substr\(\s*\w+\s*\+\s*1\)\)\s*:\s*[\'\"][\'\"])
+cdn.fera.ai [2]|text|getFeraActionParams
+cdn.fera.ai [3]|text|cdn.fera.ai/js/fera.js
 
 # Segment analytics.js
-Segment analytics.js 1|regex|(\w+\s*=\s*\/\(\\w\+\)\\\[\(\\d\+\)\\\]\/)
-Segment analytics.js 2|regex|(\(\w+\s*=\s*\w+\.exec\(\w+\)\)\s*\?\s*\(\s*\w+\[\w+\[1\]\]\s*=\s*\w+\[\w+\[1\]\]\s*\|\|\s*\[\])
+Segment analytics.js [1]|regex|(\w+\s*=\s*\/\(\\w\+\)\\\[\(\\d\+\)\\\]\/)
+Segment analytics.js [2]|regex|(\(\w+\s*=\s*\w+\.exec\(\w+\)\)\s*\?\s*\(\s*\w+\[\w+\[1\]\]\s*=\s*\w+\[\w+\[1\]\]\s*\|\|\s*\[\])
 
 # YUI 3 querystring-parse
-YUI 3 querystring-parse|regex|(\/\(\.\*\)\\\[\(\[\^\\\]\]\*\)\\\]\$\/\.exec\(\w+\))
+YUI 3 querystring-parse [1]|regex|(\/\(\.\*\)\\\[\(\[\^\\\]\]\*\)\\\]\$\/\.exec\(\w+\))
 
-# flow.js
-flow.js|regex|(\w+\s*=\s*\/\\\[\?\(\[\^\\\]\[\]\+\)\\\]\?\/g)
+# flow.io
+flow.io [1]|regex|(\w+\s*=\s*\/\\\[\?\(\[\^\\\]\[\]\+\)\\\]\?\/g)
 
 # jquery.parseParams.js
-jquery.parseParams.js|regex|(\w+\s*=\s*\w+\.split\(\/\\\.\(\.\+\)\?\/\)\[1\])
+jQuery.parseParams.js [1]|regex|(\w+\s*=\s*\w+\.split\(\/\\\.\(\.\+\)\?\/\)\[1\])
 
-# wishpond
-wishpond decodeQueryString|regex|(\w+\s*=\s*\w+\(\w+\[1\]\.slice\(\w+\s*\+\s*1,\s*\w+\[1\]\.indexOf\([\'\"]\][\'\"],\s*\w+\)\)\))
+# wishpond (decodeQueryString)
+wishpond [1]|regex|(\w+\s*=\s*\w+\(\w+\[1\]\.slice\(\w+\s*\+\s*1,\s*\w+\[1\]\.indexOf\([\'\"]\][\'\"],\s*\w+\)\)\))
 
 # Unknown Lib 1
-Unknown Lib 1|regex|(\w+\.replace\(\s*[\'\"]\[\][\'\"]\s*,\s*[\'\"]\[[\'\"]\.concat\()
+Unknown Lib [1]|regex|(\w+\.replace\(\s*[\'\"]\[\][\'\"]\s*,\s*[\'\"]\[[\'\"]\.concat\()
 
-# Unknown Lib 2
-JS equivalent of PHPs parse_str|regex|(\w+\s*=\s*\w+\.slice\(0,\s*\w+\.indexOf\([\'\"]\\x?0?0[\'\"]\)\))
+# Unknown Lib 2 (JS equivalent of PHPs parse_str)
+Unknown Lib [2]|regex|(\w+\s*=\s*\w+\.slice\(0,\s*\w+\.indexOf\([\'\"]\\x?0?0[\'\"]\)\))
 
 # Unknown Lib 3
-Unknown Lib 2|regex|("\[\]"\s*===\s*\w+\.substring\(\w+\.length\s*-\s*2\)[\s\?\)\(]*(?:\w+\[)?\w+\s*=\s*\w+\.substring\(0,\s*\w+\.length\s*-\s*2\))
+Unknown Lib [3]|regex|("\[\]"\s*===\s*\w+\.substring\(\w+\.length\s*-\s*2\)[\s\?\)\(]*(?:\w+\[)?\w+\s*=\s*\w+\.substring\(0,\s*\w+\.length\s*-\s*2\))
 
 # Unknown Lib 4
-Unknown Lib 3|regex|(\w+\.match\(\/\(\^\[\^\\\[\]\+\)\(\\\[\.\*\\\]\$\)\?\/\))
+Unknown Lib [4]|regex|(\w+\.match\(\/\(\^\[\^\\\[\]\+\)\(\\\[\.\*\\\]\$\)\?\/\))
 
 # Unknown Lib 5
-Unknown Lib 4|regex|(\(\[\^\\\\\[\^\\\\\]\]\+\)\(\(\\\\\[\(\^\\\\\[\^\\\\\]\)\\\\\]\)\*\))
+Unknown Lib [5]|regex|(\(\[\^\\\\\[\^\\\\\]\]\+\)\(\(\\\\\[\(\^\\\\\[\^\\\\\]\)\\\\\]\)\*\))
 
 # Unknown Lib 6 (inbound setUrlParams)
-Unknown Lib 6|regex|([\'\"]-1[\'\"]\s*==\s*\w+\[1\]\.indexOf\([\'\"]\[[\'\"]\))
+Unknown Lib [6]|regex|([\'\"]-1[\'\"]\s*==\s*\w+\[1\]\.indexOf\([\'\"]\[[\'\"]\))
 
 # Unknown Lib 7
-Unknown Lib 7|text|/([^&=]+)=?([^&]*)/g
+Unknown Lib [7]|text|/([^&=]+)=?([^&]*)/g
+
+# Unknown Lib 8
+Unknown Lib [8]|text|toeStrFirstUp
+
+# Unknown Lib 9 (queryParamsToObject)
+Unknown Lib [9][1]|text|queryParamsToObject
+Unknown Lib [9][2]|text|/^[\{\[].*[\}\]]$/

@@ -1,15 +1,3 @@
-function init() {
-    window.ppscan = () => {
-        console.log(`%c--------------------gadget for ${location.hostname} found ------------------\n>> ${location.href}`, `color:red`);
-    };
-}
-
-inject = '(' + init + ')()';
-var script = document.createElement("script");
-script.setAttribute('type', 'text/javascript')
-script.appendChild(document.createTextNode(inject));
-document.documentElement.appendChild(script);
-
 document.addEventListener('TriggerBrute', () => {
     var iframe = document.createElement('iframe');
     iframe.addEventListener('load', () => {
