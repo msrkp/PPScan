@@ -13,7 +13,7 @@
         #found-label {
             display: block;
             float: left;
-            margin: 8px 0;
+            margin: 4px 2px 2px;
         }
         
         #clear {
@@ -98,34 +98,44 @@
     <div>
         <h3 style="
     float: left;
-    margin: 8px 2px;
+    margin: 4px 2px;
 ">Mode : </h3>
-        <input id="toggle" value="Enable Active Mode" type="button" style="
-    margin: 8px 2px;
+        <input id="toggle" value="Disable Active Mode" type="button" style="
+    margin: 5px 0 6px 2px;
     margin-left: 12px;
+    float: left;
 ">
-        <input type="button" id="buster" style="display: none;" value="Enable Window Mode">
-        <input type="button" id="passive" value="Disable Passive Mode"><br>
+        <input type="button" id="buster" style="display: block;float: left;margin: 5px 3px;" value="Enable Window Mode">
+        <input type="button" id="passive" value="Disable Passive Mode" style="
+    float: left;
+    display: block;
+    margin: 5px 0;
+"><br>
         <h3 style="
     float: left;
-    margin: 8px 2px;
-">Brute Gadgets : </h3><input type="button" id="brute" value="Search" style="margin: 9px 4px;margin-left: 13px;"><input type="button" id="brutehash" value="Hash" style="
-    margin: 9px 2px;
+    margin: 4px 2px;
+    clear: both;
+">Brute Gadgets : </h3><input type="button" id="brute" value="Search" style="margin: 5px 2px;margin-left: 13px;float: left;"><input type="button" id="brutehash" value="Hash" style="
+    margin: 5px 2px;
+    float: left;
 "><br>
     </div>
 
-    <h3 id="found-label" style="margin-bottom: 16px; display: block;">Found (<a href="#" id="clear" value="Clear">Clear</a>) </h3>
-    <!-- <ol ></ol> -->
+    <h3 id="found-label" style="margin-bottom: 16px;display: block;clear: both;">Found (<a href="#" id="clear" value="Clear">Clear</a>) </h3>
     <table id="found-list" style="display: block;">
         <tbody>
             <tr>
-                <th>origin</th>
+                <th>host</th>
                 <th>type</th>
                 <th>location</th>
             </tr>
         </tbody>
     </table>
     <script type="text/javascript" src="/scripts/popup.js"></script>
+
+
+
+
 
 
 
