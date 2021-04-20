@@ -50,8 +50,8 @@ flow.js [1]|regex|(\w+\s*=\s*\/\\\[\?\(\[\^\\\]\[\]\+\)\\\]\?\/g)
 # jquery.parseParams.js
 jQuery.parseParams.js [1]|regex|(\w+\s*=\s*\w+\.split\(\/\\\.\(\.\+\)\?\/\)\[1\])
 
-# wishpond
-wishpond decodeQueryString [1]|regex|(\w+\s*=\s*\w+\(\w+\[1\]\.slice\(\w+\s*\+\s*1,\s*\w+\[1\]\.indexOf\([\'\"]\][\'\"],\s*\w+\)\)\))
+# wishpond (decodeQueryString)
+wishpond [1]|regex|(\w+\s*=\s*\w+\(\w+\[1\]\.slice\(\w+\s*\+\s*1,\s*\w+\[1\]\.indexOf\([\'\"]\][\'\"],\s*\w+\)\)\))
 
 # Unknown Lib 1
 Unknown Lib [1]|regex|(\w+\.replace\(\s*[\'\"]\[\][\'\"]\s*,\s*[\'\"]\[[\'\"]\.concat\()

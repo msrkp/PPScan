@@ -1,14 +1,19 @@
 function init() {
     window.ppscan = () => {
-        console.log(`%c--------------------gadget for ${location.hostname} found ------------------\n>> ${location.href}`, `color:red`);
+        console.log(`%c ${location.href.replace(/(^\w+:|^)\/\//, '')} `, `color:red; display:block; font-size: 22px;text-align:right; background: red; color: white`);
     };
 }
 
-inject = '(' + init + ')()';
-var script = document.createElement("script");
-script.setAttribute('type', 'text/javascript')
-script.appendChild(document.createTextNode(inject));
-document.documentElement.appendChild(script);
+var script = document.createElement('script');
+script.textContent = `(${init})()`;
+(document.head || document.documentElement).prepend(script);
+
+
+// inject = '(' + init + ')()';
+// var script = document.createElement("script");
+// script.setAttribute('type', 'text/javascript')
+// script.appendChild(document.createTextNode(inject));
+// document.documentElement.appendChild(script);
 
 document.addEventListener('TriggerBrute', () => {
     var iframe = document.createElement('iframe');

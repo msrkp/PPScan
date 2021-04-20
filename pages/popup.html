@@ -23,11 +23,9 @@
         #found-list {
             float: left;
             border-collapse: collapse;
-            /* text-align: left; */
             clear: both;
             width: calc(100% - 17px);
             font-size: 9px;
-            /* font-family: monospace; */
             font-family: sans-serif;
             margin-bottom: 14px;
             display: none;
@@ -72,16 +70,13 @@
         }
         
         td:nth-child(1)>a {
-            /* text-decoration: none; */
             font-weight: bold;
             color: black;
             padding: 0px 8px;
         }
         
         td:nth-child(3)>a {
-            /* text-decoration: none; */
             color: black;
-            /* padding: 0px 8px; */
         }
         
         td:nth-child(2) {
@@ -95,21 +90,23 @@
 </head>
 
 <body>
-    <div>
+    <div style="
+    min-width: 770px;
+    ">
         <h3 style="
     float: left;
     margin: 4px 2px;
 ">Mode : </h3>
         <input id="toggle" value="Disable Active Mode" type="button" style="
-    margin: 5px 0 6px 2px;
+    margin: 5px 2px 6px 2px;
     margin-left: 12px;
     float: left;
 ">
-        <input type="button" id="buster" style="display: block;float: left;margin: 5px 3px;" value="Enable Window Mode">
+        <input type="button" id="buster" style="display: none;float: left;margin: 5px 1px;" value="Enable Window Mode">
         <input type="button" id="passive" value="Disable Passive Mode" style="
     float: left;
     display: block;
-    margin: 5px 0;
+    margin: 5px 3;
 "><br>
         <h3 style="
     float: left;
@@ -122,7 +119,7 @@
     </div>
 
     <h3 id="found-label" style="margin-bottom: 16px;display: block;clear: both;">Found (<a href="#" id="clear" value="Clear">Clear</a>) </h3>
-    <table id="found-list" style="display: block;">
+    <table id="found-list" style="display: block; width: 100%;">
         <tbody>
             <tr>
                 <th>host</th>
@@ -132,14 +129,6 @@
         </tbody>
     </table>
     <script type="text/javascript" src="/scripts/popup.js"></script>
-
-
-
-
-
-
-
-
 </body>
 
 </html>

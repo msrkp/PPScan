@@ -1,8 +1,8 @@
 const DEBUG = false;
 
 const blacklist = [
-    'www.googleadservices.com/pagead/conversion_async.js',
-    'www.googleadservices.com/pagead/conversion.js'
+    'https://www.google.com/pagead/conversion_async.js:19:76',
+    'https://www.googleadservices.com/pagead/conversion_async.js:19:76'
 ];
 
 let database = [];
@@ -100,8 +100,13 @@ const check = ({ requestUri, initiator }) => {
                 const preChunk = res.substr(0, match[i].index).split(/\n/);
                 const line = preChunk.length;
                 const column = preChunk[preChunk.length - 1].length;
+                const lineCol = `${line}:${column}`;
 
-                found.add({ domain: initiator, type: name, file: requestUri, lineCol: `${line}:${column}` })
+                if (blacklist.indexOf(requestUri + ':' + lineCol) != -1) {
+                    return;
+                }
+
+                found.add(JSON.stringify({ domain: initiator, type: name, file: requestUri, lineCol }))
                 setBadgeCount(found.size);
             });
         })

