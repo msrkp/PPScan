@@ -4,7 +4,8 @@ const blacklist = [
     'https://www.google.com/pagead/conversion_async.js:19:76',
     'https://www.google.com/pagead/conversion.js:28:76',
     'https://www.googleadservices.com/pagead/conversion_async.js:19:76',
-    'https://www.googleadservices.com/pagead/conversion.js:28:76'
+    'https://www.googleadservices.com/pagead/conversion.js:28:76',
+    'https://fast.wistia.com/assets/external/E-v1.js' // is not vulnerable
 ];
 
 let database = [];
