@@ -1,25 +1,74 @@
-Purl (jQuery-URL-Parser)|regex|KFN0cmluZ1woXHcrXClcLnNwbGl0XChcLyZcfDtcL1wpXCxccypmdW5jdGlvblwoKQ==
-CanJS deparam|regex|KFwvXChcW1xeXFxcW1xcXF1cXVwrXClcfFwoXFxcW1xcXF1cKVwvZ1xzKik=
-MooTools More|regex|KFwuc3Vic3RyXCgwLFxzKlx3K1xzKi1ccyoxXClcLm1hdGNoXChcL1woXFtcXlxcXF1cXD9cW1xdXCtcfFwoXFxCXClcKFw/XD1cXFxdXClcKVwvZ1wpKQ==
-jQuery BBQ (deparam)|regex|KFwkXC5lYWNoXChccypcdytcLnJlcGxhY2VcKFxzKlwvXFxcK1wvZ1xzKixccypbXCdcIl0gW1wnXCJdXHMqXClcLnNwbGl0XChccypbXCdcIl0mW1wnXCJdXHMqXCkp
-deparam #1|regex|KFxzKlwvXFxcW1wvXC50ZXN0XChccypcdytcWzBcXVxzKlwpXHMqJiZccypcL1xcXF1cJFwvXC50ZXN0XChccypcdytcW1xzKlx3K1xzKlxdXHMqXClccyop
-deparam #2|regex|KFtcJ1wiXVxbXF1bXCdcIl1ccyo9PT1ccypcdytccypcP1xzKlx3K1wucHVzaFwoXHcrXClccyo6XHMqXHcrXFtcdytcXVxzKj1ccypcdysp
-backbone-query-parameters #2|regex|KFxzKihcdyspXHMqPVxzKlwyXFsoXHcrKVxdXHMqPVxzKlwyXFtcM1xdXHMqXHxcfFxzKlx7XH0p
-V4Fire Core|regex|KFx3K1xzKj1ccypcL1xcXFtcKFxbXF5cXFxdXF1cKlwpXF1cL2cp
-jQuery Sparkle|regex|KFx3K1xzKj1ccypcdytcLnNwbGl0XChcL1xcXCZcKGFtcFxcXDtcKVw/XC9cKSk=
-jQuery query-object|regex|KFwvXF5cKFxbXF5cW1xdXCtcKVwoXFxcW1wuXCpcXFxdXClcP1wkXC9cLmV4ZWNcKFxzKlx3K1xzKlwpKQ==
-queryToObject|regex|KFwubWF0Y2hcKFwvXChcXlxbXF5cW1xdXCtcKVwoXFxcW1wuXCpcXFxdXCRcKVw/XC9cKSk=
-getJsonFromUrl|regex|KFw/XHMqZGVjb2RlVVJJQ29tcG9uZW50XChccypcdytcLnN1YnN0clwoXHMqXHcrXHMqXCtccyoxXClcKVxzKjpccypbXCdcIl1bXCdcIl0p
-Unknown lib #1|regex|KFx3K1wucmVwbGFjZVwoXHMqW1wnXCJdXFtcXVtcJ1wiXVxzKixccypbXCdcIl1cW1tcJ1wiXVwuY29uY2F0XCgp
-Segment analytics.js #1|regex|KFx3K1xzKj1ccypcL1woXFx3XCtcKVxcXFtcKFxcZFwrXClcXFxdXC8p
-Segment analytics.js #1|regex|KFwoXHcrXHMqPVxzKlx3K1wuZXhlY1woXHcrXClcKVxzKlw/XHMqXChccypcdytcW1x3K1xbMVxdXF1ccyo9XHMqXHcrXFtcdytcWzFcXVxdXHMqXHxcfFxzKlxbXF0p
-YUI 3 querystring-parse|regex|KFwvXChcLlwqXClcXFxbXChcW1xeXFxcXVxdXCpcKVxcXF1cJFwvXC5leGVjXChcdytcKSk=
-flow.js|regex|KFx3K1xzKj1ccypcL1xcXFtcP1woXFtcXlxcXF1cW1xdXCtcKVxcXF1cP1wvZyk=
-jquery.parseParams.js|regex|KFx3K1xzKj1ccypcdytcLnNwbGl0XChcL1xcXC5cKFwuXCtcKVw/XC9cKVxbMVxdKQ==
-wishpond decodeQueryString|regex|KFx3K1xzKj1ccypcdytcKFx3K1xbMVxdXC5zbGljZVwoXHcrXHMqXCtccyoxLFxzKlx3K1xbMVxdXC5pbmRleE9mXChbXCdcIl1cXVtcJ1wiXSxccypcdytcKVwpXCkp
-JS equivalent of PHPs parse_str|regex|KFx3K1xzKj1ccypcdytcLnNsaWNlXCgwLFxzKlx3K1wuaW5kZXhPZlwoW1wnXCJdXFx4PzA/MFtcJ1wiXVwpXCkp
-Unknown Lib #2|regex|KCJcW1xdIlxzKj09PVxzKlx3K1wuc3Vic3RyaW5nXChcdytcLmxlbmd0aFxzKi1ccyoyXClbXHNcP1wpXChdKig/Olx3K1xbKT9cdytccyo9XHMqXHcrXC5zdWJzdHJpbmdcKDAsXHMqXHcrXC5sZW5ndGhccyotXHMqMlwpKQ==
-Unknown Lib #3|regex|KFx3K1wubWF0Y2hcKFwvXChcXlxbXF5cXFxbXF1cK1wpXChcXFxbXC5cKlxcXF1cJFwpXD9cL1wpKQ==
-Unknown Lib #4|regex|KFwoXFtcXlxcXFxcW1xeXFxcXFxdXF1cK1wpXChcKFxcXFxcW1woXF5cXFxcXFtcXlxcXFxcXVwpXFxcXFxdXClcKlwpKQ==
-Unknown Lib #5 inbound setUrlParams|regex|KFtcJ1wiXS0xW1wnXCJdXHMqPT1ccypcdytcWzFcXVwuaW5kZXhPZlwoW1wnXCJdXFtbXCdcIl1cKSk=
-Nonamed #1|text|/([^&=]+)=?([^&]*)/g
+# Purl
+Purl|regex|(String\(\w+\)\.split\(\/&\|;\/\)\,\s*function\()
+
+# CanJS deparam
+CanJS deparam|regex|(\/\(\[\^\\\[\\\]\]\+\)\|\(\\\[\\\]\)\/g\s*)
+
+# MooTools More
+MooTools More|regex|(\.substr\(0,\s*\w+\s*-\s*1\)\.match\(\/\(\[\^\\\]\\?\[\]\+\|\(\\B\)\(\?\=\\\]\)\)\/g\))
+
+# jQuery BBQ
+jQuery BBQ (deparam)|regex|(\$\.each\(\s*\w+\.replace\(\s*\/\\\+\/g\s*,\s*[\'\"] [\'\"]\s*\)\.split\(\s*[\'\"]&[\'\"]\s*\))
+
+# deparam
+deparam 1|regex|(\s*\/\\\[\/\.test\(\s*\w+\[0\]\s*\)\s*&&\s*\/\\\]\$\/\.test\(\s*\w+\[\s*\w+\s*\]\s*\)\s*)
+deparam 2|regex|([\'\"]\[\][\'\"]\s*===\s*\w+\s*\?\s*\w+\.push\(\w+\)\s*:\s*\w+\[\w+\]\s*=\s*\w+)
+
+# backbone query parameters
+backbone-query-parameters #2|regex|(\s*(\w+)\s*=\s*\2\[(\w+)\]\s*=\s*\2\[\3\]\s*\|\|\s*\{\})
+
+# V4Fire Core
+V4Fire Core|regex|(\w+\s*=\s*\/\\\[\(\[\^\\\]\]\*\)\]\/g)
+
+# jQuery Sparkle
+jQuery Sparkle|regex|(\w+\s*=\s*\w+\.split\(\/\\\&\(amp\\\;\)\?\/\))
+
+# jQuery query-object
+jQuery query-object 1|regex|(\/\^\(\[\^\[\]\+\)\(\\\[\.\*\\\]\)\?\$\/\.exec\(\s*\w+\s*\))
+jQuery query-object 2|text|/* jQuery querystring plugin */
+jQuery query-object 3|text|/^([^[]+?)(\[.*\])?$/.exec(
+
+# queryToObject
+queryToObject|regex|(\.match\(\/\(\^\[\^\[\]\+\)\(\\\[\.\*\\\]\$\)\?\/\))
+
+# fera.ai (getJsonFromUrl)
+cdn.fera.ai|regex|(\?\s*decodeURIComponent\(\s*\w+\.substr\(\s*\w+\s*\+\s*1\)\)\s*:\s*[\'\"][\'\"])
+cdn.fera.ai|text|getFeraActionParams
+cdn.fera.ai|text|cdn.fera.ai/js/fera.js
+
+# Segment analytics.js
+Segment analytics.js 1|regex|(\w+\s*=\s*\/\(\\w\+\)\\\[\(\\d\+\)\\\]\/)
+Segment analytics.js 2|regex|(\(\w+\s*=\s*\w+\.exec\(\w+\)\)\s*\?\s*\(\s*\w+\[\w+\[1\]\]\s*=\s*\w+\[\w+\[1\]\]\s*\|\|\s*\[\])
+
+# YUI 3 querystring-parse
+YUI 3 querystring-parse|regex|(\/\(\.\*\)\\\[\(\[\^\\\]\]\*\)\\\]\$\/\.exec\(\w+\))
+
+# flow.js
+flow.js|regex|(\w+\s*=\s*\/\\\[\?\(\[\^\\\]\[\]\+\)\\\]\?\/g)
+
+# jquery.parseParams.js
+jquery.parseParams.js|regex|(\w+\s*=\s*\w+\.split\(\/\\\.\(\.\+\)\?\/\)\[1\])
+
+# wishpond
+wishpond decodeQueryString|regex|(\w+\s*=\s*\w+\(\w+\[1\]\.slice\(\w+\s*\+\s*1,\s*\w+\[1\]\.indexOf\([\'\"]\][\'\"],\s*\w+\)\)\))
+
+# Unknown Lib 1
+Unknown Lib 1|regex|(\w+\.replace\(\s*[\'\"]\[\][\'\"]\s*,\s*[\'\"]\[[\'\"]\.concat\()
+
+# Unknown Lib 2
+JS equivalent of PHPs parse_str|regex|(\w+\s*=\s*\w+\.slice\(0,\s*\w+\.indexOf\([\'\"]\\x?0?0[\'\"]\)\))
+
+# Unknown Lib 3
+Unknown Lib 2|regex|("\[\]"\s*===\s*\w+\.substring\(\w+\.length\s*-\s*2\)[\s\?\)\(]*(?:\w+\[)?\w+\s*=\s*\w+\.substring\(0,\s*\w+\.length\s*-\s*2\))
+
+# Unknown Lib 4
+Unknown Lib 3|regex|(\w+\.match\(\/\(\^\[\^\\\[\]\+\)\(\\\[\.\*\\\]\$\)\?\/\))
+
+# Unknown Lib 5
+Unknown Lib 4|regex|(\(\[\^\\\\\[\^\\\\\]\]\+\)\(\(\\\\\[\(\^\\\\\[\^\\\\\]\)\\\\\]\)\*\))
+
+# Unknown Lib 6 (inbound setUrlParams)
+Unknown Lib 6|regex|([\'\"]-1[\'\"]\s*==\s*\w+\[1\]\.indexOf\([\'\"]\[[\'\"]\))
+
+# Unknown Lib 7
+Unknown Lib 7|text|/([^&=]+)=?([^&]*)/g
