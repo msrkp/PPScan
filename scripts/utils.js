@@ -1,5 +1,8 @@
+const DEBUG = false;
+
 const blacklist = [
-    'https://www.googleadservices.com/pagead/conversion_async.js'
+    'www.googleadservices.com/pagead/conversion_async.js',
+    'www.googleadservices.com/pagead/conversion.js'
 ];
 
 let database = [];
@@ -13,7 +16,7 @@ const patternMatch = (response, database) => {
 
         switch (type) {
             case 'regex':
-                const re = new RegExp(atob(chunk));
+                const re = new RegExp(chunk);
                 const match = re.exec(response);
 
                 if (match) {
@@ -35,15 +38,25 @@ const patternMatch = (response, database) => {
     return [result, matches];
 };
 
-const downloadDb = (url) => {
+const downloadDB = (url) => {
     return new Promise((resolve, reject) => {
         fetch(url).then(
                 response => response.text()
             ).then(res => {
                 const ret = res.split('\n').map(line => {
-                    const [name, type, chunk] = line.split('|', 3);
+                    line = line.trim();
+                    if (line.startsWith('#') || line == '') { return; }
+
+                    let data = line.split('|');
+                    let name, type, chunk;
+
+                    name = data[0].trim();
+                    type = data[1].trim();
+                    chunk = data.slice(2).join('|').trim();
+
                     return { name, type, chunk };
-                });
+                }).filter(notnull => notnull);
+
                 resolve(ret);
             })
             .catch(err => {
@@ -67,9 +80,13 @@ const download = (url) => {
 };
 
 const check = ({ requestUri, initiator }) => {
+    if (DEBUG) {
+        console.log(`[%] ${requestUri}`)
+    }
+
     const url = new URL(requestUri);
 
-    if (blacklist.indexOf(url.origin + url.pathname) != -1) {
+    if (blacklist.indexOf(url.hostname + url.pathname) != -1) {
         return;
     };
     if (!url.hostname || !url.pathname) {
@@ -80,7 +97,11 @@ const check = ({ requestUri, initiator }) => {
             const [result, match] = patternMatch(res, database);
 
             result.forEach((name, i) => {
-                found.add(`[${name}] ${initiator}\n${requestUri}:${match[i].index}`)
+                const preChunk = res.substr(0, match[i].index).split(/\n/);
+                const line = preChunk.length;
+                const column = preChunk[preChunk.length - 1].length;
+
+                found.add(`[${name}] ${initiator}\n${requestUri}:${line}:${column}`)
                 setBadgeCount(found.size);
             });
         })
@@ -93,14 +114,14 @@ const filter = {
 };
 
 const scan = ({ method, url, initiator }) => {
-    if (method == "GET") {
-        check({ requestUri: url, initiator });
-    }
+    // if (method == "GET") {
+    check({ requestUri: url, initiator });
+    // }
 };
 
 const updateDB = () => {
     if (!database.length) {
-        downloadDb(databaseUrl).then((_database) => {
+        downloadDB(databaseUrl).then((_database) => {
             database = _database;
             chrome.webRequest.onCompleted.addListener(scan, filter, []);
         }).catch(e => console.log(e));
@@ -119,7 +140,6 @@ const maybeSame = (a, b) => {
 };
 
 const isCSPHeader = ({ header: name }) => {
-    console.log(name);
     return maybeSame(name, 'Content-Security-Policy');
 };
 
