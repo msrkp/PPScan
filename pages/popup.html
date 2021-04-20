@@ -13,22 +13,101 @@
             margin: 8px 0;
         }
         
+        #clear {
+            color: #838383;
+        }
+        
         #found-list {
             float: left;
+            border-collapse: collapse;
+            /* text-align: left; */
+            clear: both;
+            width: calc(100% - 17px);
+            font-size: 9px;
+            /* font-family: monospace; */
+            font-family: sans-serif;
+            margin-bottom: 14px;
+            display: none;
+            table-layout: fixed;
+        }
+        
+        table {
+            table-layout: fixed;
+        }
+        
+        th {
+            background: #626970;
+            color: white;
+            text-transform: capitalize;
+        }
+        
+        th {
+            padding: 5px 7px;
+            border: 1px solid #626970;
+        }
+        
+        th:nth-child(1) {
+            border-left: 1px solid #626970;
+        }
+        
+        th:nth-child(3) {
+            border-right: 1px solid #626970;
+        }
+        
+        td {
+            border: 1px solid black;
+            padding: 2px 4px;
+        }
+        
+        td:nth-child(1),
+        td:nth-child(2) {
+            text-align: center;
+        }
+        
+        td:nth-child(1) {
+            width: 140px;
+        }
+        
+        td:nth-child(1)>a {
+            /* text-decoration: none; */
+            font-weight: bold;
+            color: black;
+            padding: 0px 8px;
+        }
+        
+        td:nth-child(3)>a {
+            /* text-decoration: none; */
+            color: black;
+            /* padding: 0px 8px; */
+        }
+        
+        td:nth-child(2) {
+            width: 150px;
+        }
+        
+        td:nth-child(3) {
+            width: 300px;
         }
     </style>
 </head>
 
 <body>
-    <div style="width:380px;">
+    <div>
         <input id="toggle" value="Disable" type="button" />
-        <input type="button" id="buster" style="visibility: hidden;" value="Enable Window Mode">
+        <input type="button" id="buster" style="visibility: hidden;" value="Enable Window Mode"><br>
         <input type="button" id="passive" value="Enable Passive Mode"><br>
         <h3>Brute Gadgets: </h3><input type="button" id="brute" value="Search"><input type="button" id="brutehash" value="Hash"><br>
     </div>
 
-    <h3 id="found-label">Found (<a href="#" id="clear" value="Clear">Clear</a>):</h3>
-    <ol id="found-list"></ol>
+    <h3 id="found-label" style="margin-bottom: 16px;">Found (<a href="#" id="clear" value="Clear">Clear</a>):</h3>
+    <!-- <ol ></ol> -->
+    <table id="found-list">
+        <tr>
+            <th>origin</th>
+            <th>type</th>
+            <th>location</th>
+        </tr>
+    </table>
     <script type="text/javascript" src="/scripts/popup.js"></script>
 </body>
 

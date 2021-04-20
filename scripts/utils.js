@@ -16,7 +16,7 @@ const patternMatch = (response, database) => {
 
         switch (type) {
             case 'regex':
-                const re = new RegExp(chunk);
+                const re = new RegExp(chunk, 'i');
                 const match = re.exec(response);
 
                 if (match) {
@@ -101,7 +101,7 @@ const check = ({ requestUri, initiator }) => {
                 const line = preChunk.length;
                 const column = preChunk[preChunk.length - 1].length;
 
-                found.add(`[${name}] ${initiator}\n${requestUri}:${line}:${column}`)
+                found.add({ domain: initiator, type: name, file: requestUri, lineCol: `${line}:${column}` })
                 setBadgeCount(found.size);
             });
         })
