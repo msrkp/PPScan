@@ -71,7 +71,7 @@ Unknown Lib [5]|regex|(\(\[\^\\\\\[\^\\\\\]\]\+\)\(\(\\\\\[\(\^\\\\\[\^\\\\\]\)\
 # Unknown Lib 6 (inbound setUrlParams)
 Unknown Lib [6]|regex|([\'\"]-1[\'\"]\s*==\s*\w+\[1\]\.indexOf\([\'\"]\[[\'\"]\))
 
-# Unknown Lib 7
+# Unknown Lib 7 (not work in https://utteranc.es/client.js:1:501)
 Unknown Lib [7]|text|/([^&=]+)=?([^&]*)/g
 
 # Unknown Lib 8
@@ -80,3 +80,6 @@ Unknown Lib [8]|text|toeStrFirstUp
 # Unknown Lib 9 (queryParamsToObject)
 Unknown Lib [9][1]|text|queryParamsToObject
 Unknown Lib [9][2]|text|/^[\{\[].*[\}\]]$/
+
+# Unknown Lib 10 : https://d2aly8ugr9c5td.cloudfront.net/javascript/loyalty_api_iframe_2021_04_19_08_15.js
+Unknown Lib[10]|text|(String(e).split(/&|;/)
