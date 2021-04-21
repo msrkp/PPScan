@@ -2,6 +2,7 @@ var port = chrome.extension.connect({
     name: "logger"
 });
 
+chrome.browserAction.setBadgeBackgroundColor({ color: '#777' });
 
 function logger() {
     chrome.storage.sync.get("toggle", function(data) {
@@ -85,10 +86,10 @@ function listFound(found) {
     // foundList.innerHTML = '';
     foundLabel.style.display = foundList.style.display = found.length > 0 ? 'block' : 'none';
 
-    found.forEach((str) => {
+    found.slice().reverse().forEach((str, index) => {
         const line = JSON.parse(str)
         const tr = document.createElement("tr");
-        tr.innerHTML = `<td><a target="_blank" href="${line['domain']}">${new URL(line['domain']).hostname}</a></td><td>${line['type']}</td><td><a target="_blank" href="${line['file']}">${line['file']}:${line['lineCol']}</a></td>`;
+        tr.innerHTML = `<td>${found.length - index}</td><td><a target="_blank" href="${line['domain']}">${new URL(line['domain']).hostname}</a></td><td>${line['type']}</td><td><a target="_blank" href="${line['file']}">${line['file']}:${line['lineCol']}</a></td>`;
         foundList.appendChild(tr);
     });
 }

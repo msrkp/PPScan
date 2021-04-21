@@ -137,10 +137,10 @@ const updateDB = () => {
 };
 
 const setBadgeCount = (len) => {
-    chrome.browserAction.setBadgeText({ "text": '' + len });
-    chrome.browserAction.setBadgeBackgroundColor({ color: len > 0 ? [255, 0, 0, 255] : [0, 0, 255, 0] });
-
-    return;
+    if (len != 0) {
+        chrome.browserAction.setBadgeText({ "text": '' + len });
+        chrome.browserAction.setBadgeBackgroundColor({ color: '#f00' });
+    }
 };
 
 const maybeSame = (a, b) => {
