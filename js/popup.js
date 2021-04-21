@@ -99,7 +99,7 @@ request.onsuccess = (event) => {
                 var anchor = document.createElement("a");
                 anchor.target = '_blank';
                 anchor.href = element['file'];
-                anchor.innerText = element['file'] + element['linecol']
+                anchor.innerText = element['file'] + ':' + element['linecol'];
                 td.appendChild(anchor);
                 tr.appendChild(td);
 
