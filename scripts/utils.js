@@ -1,11 +1,11 @@
 const DEBUG = false;
 
 const blacklist = [
-    'https://www.google.com/pagead/conversion_async.js:19:76',
-    'https://www.google.com/pagead/conversion.js:28:76',
-    'https://www.googleadservices.com/pagead/conversion_async.js:19:76',
-    'https://www.googleadservices.com/pagead/conversion.js:28:76',
-    'https://fast.wistia.com/assets/external/E-v1.js' // is not vulnerable
+    "https://www.google.com/pagead/conversion_async.js:19:76",
+    "https://www.google.com/pagead/conversion.js:28:76",
+    "https://www.googleadservices.com/pagead/conversion_async.js:19:76",
+    "https://www.googleadservices.com/pagead/conversion.js:28:76",
+    "https://fast.wistia.com/assets/external/E-v1.js", // is not vulnerable
 ];
 
 let database = [];
@@ -18,22 +18,22 @@ const patternMatch = (response, database) => {
         const { name, type, chunk } = pattern;
 
         switch (type) {
-            case 'regex':
-                const re = new RegExp(chunk, 'i');
+            case "regex":
+                const re = new RegExp(chunk, "i");
                 const match = re.exec(response);
 
                 if (match) {
                     result.push(name);
                     matches.push(match);
-                };
+                }
                 break;
-            case 'text':
+            case "text":
                 const position = response.indexOf(chunk);
 
                 if (position != -1) {
                     result.push(name);
                     matches.push({ index: position });
-                };
+                }
                 break;
         }
     });
@@ -43,60 +43,65 @@ const patternMatch = (response, database) => {
 
 const downloadDB = (url) => {
     return new Promise((resolve, reject) => {
-        fetch(url).then(
-                response => response.text()
-            ).then(res => {
-                const ret = res.split('\n').map(line => {
-                    line = line.trim();
-                    if (line.startsWith('#') || line == '') { return; }
+        fetch(url)
+            .then((response) => response.text())
+            .then((res) => {
+                const ret = res
+                    .split("\n")
+                    .map((line) => {
+                        line = line.trim();
+                        if (line.startsWith("#") || line == "") {
+                            return;
+                        }
 
-                    let data = line.split('|');
-                    let name, type, chunk;
+                        let data = line.split("|");
+                        let name, type, chunk;
 
-                    name = data[0].trim();
-                    type = data[1].trim();
-                    chunk = data.slice(2).join('|').trim();
+                        name = data[0].trim();
+                        type = data[1].trim();
+                        chunk = data.slice(2).join("|").trim();
 
-                    return { name, type, chunk };
-                }).filter(notnull => notnull);
+                        return { name, type, chunk };
+                    })
+                    .filter((notnull) => notnull);
 
                 resolve(ret);
             })
-            .catch(err => {
+            .catch((err) => {
                 console.log(err);
-                reject(new Error('Error downloading ' + url))
-            })
+                reject(new Error("Error downloading " + url));
+            });
     });
 };
 
 const download = (url) => {
     return new Promise((resolve, reject) => {
-        fetch(url).then(
-                response => response.text()
-            ).then(data => {
+        fetch(url)
+            .then((response) => response.text())
+            .then((data) => {
                 resolve(data);
             })
-            .catch(err => {
-                reject(new Error('Error downloading ' + url))
-            })
+            .catch((err) => {
+                reject(new Error("Error downloading " + url));
+            });
     });
 };
 
 const check = ({ requestUri, initiator }) => {
     if (DEBUG) {
-        console.log(`[%] ${requestUri}`)
+        console.log(`[%] ${requestUri}`);
     }
 
     const url = new URL(requestUri);
 
     if (blacklist.indexOf(url.hostname + url.pathname) != -1) {
         return;
-    };
+    }
     if (!url.hostname || !url.pathname) {
         return;
-    };
+    }
     if (url.protocol == "http:" || url.protocol == "https:") {
-        download(url).then(res => {
+        download(url).then((res) => {
             const [result, match] = patternMatch(res, database);
 
             result.forEach((name, i) => {
@@ -105,20 +110,22 @@ const check = ({ requestUri, initiator }) => {
                 const column = preChunk[preChunk.length - 1].length;
                 const lineCol = `${line}:${column}`;
 
-                if (blacklist.indexOf(requestUri + ':' + lineCol) != -1) {
+                if (blacklist.indexOf(requestUri + ":" + lineCol) != -1) {
                     return;
                 }
 
-                found.add(JSON.stringify({ domain: initiator, type: name, file: requestUri, lineCol }))
-                setBadgeCount(found.size);
+                found.add({ domain: initiator, type: name, file: requestUri, lineCol });
+                found.get().then((res) => {
+                    setBadgeCount(res.length);
+                });
             });
-        })
+        });
     }
 };
 
 const filter = {
     urls: ["<all_urls>"],
-    types: ["script"]
+    types: ["script"],
 };
 
 const scan = ({ method, url, initiator }) => {
@@ -129,17 +136,21 @@ const scan = ({ method, url, initiator }) => {
 
 const updateDB = () => {
     if (!database.length) {
-        downloadDB(databaseUrl).then((_database) => {
-            database = _database;
-            chrome.webRequest.onCompleted.addListener(scan, filter, []);
-        }).catch(e => console.log(e));
+        downloadDB(databaseUrl)
+            .then((_database) => {
+                database = _database;
+                chrome.webRequest.onCompleted.addListener(scan, filter, []);
+            })
+            .catch((e) => console.log(e));
     }
 };
 
 const setBadgeCount = (len) => {
     if (len != 0) {
-        chrome.browserAction.setBadgeText({ "text": '' + len });
-        chrome.browserAction.setBadgeBackgroundColor({ color: '#f00' });
+        chrome.browserAction.setBadgeText({ text: "" + len });
+        chrome.browserAction.setBadgeBackgroundColor({ color: "#f00" });
+    } else {
+        chrome.browserAction.setBadgeText({ text: "" });
     }
 };
 
@@ -148,13 +159,13 @@ const maybeSame = (a, b) => {
 };
 
 const isCSPHeader = ({ header: name }) => {
-    return maybeSame(name, 'Content-Security-Policy');
+    return maybeSame(name, "Content-Security-Policy");
 };
 
 const isXFrameEnabled = ({ header: name }) => {
-    return maybeSame(name, 'X-Frame-Options');
+    return maybeSame(name, "X-Frame-Options");
 };
 
 const isCached = ({ header: name }) => {
-    return maybeSame(name, 'If-None-Match');
+    return maybeSame(name, "If-None-Match");
 };

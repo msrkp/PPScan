@@ -71,7 +71,7 @@ function logger() {
     port.postMessage('send found urls');
 
     port.onMessage.addListener(function(found) {
-        listFound(found.found);
+        listFound(found['items']);
     });
 
 
@@ -83,11 +83,11 @@ const foundLabel = document.getElementById('found-label');
 const foundList = document.getElementById('found-list');
 
 function listFound(found) {
+    console.log(found);
     // foundList.innerHTML = '';
     foundLabel.style.display = foundList.style.display = found.length > 0 ? 'block' : 'none';
 
-    found.slice().reverse().forEach((str, index) => {
-        const line = JSON.parse(str)
+    found.slice().reverse().forEach((line, index) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `<td>${found.length - index}</td><td><a target="_blank" href="${line['domain']}">${new URL(line['domain']).hostname}</a></td><td>${line['type']}</td><td><a target="_blank" href="${line['file']}">${line['file']}:${line['lineCol']}</a></td>`;
         foundList.appendChild(tr);
