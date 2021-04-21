@@ -5,36 +5,16 @@
 </head>
 
 <body>
-    <div style="
-    min-width: 700px;
-    ">
-        <h3 style="
-    float: left;
-    margin: 4px 2px;
-">Mode : </h3>
-        <input id="toggle" value="Disable Active Mode" type="button" style="
-    margin: 5px 2px 6px 2px;
-    margin-left: 12px;
-    float: left;
-">
-        <input type="button" id="buster" style="display: none;float: left;margin: 5px 1px;" value="Enable Window Mode">
-        <input type="button" id="passive" value="Disable Passive Mode" style="
-    float: left;
-    display: block;
-    margin: 5px 3;
-"><br>
-        <h3 style="
-    float: left;
-    margin: 4px 2px;
-    clear: both;
-">Brute Gadgets : </h3><input type="button" id="brute" value="Search" style="margin: 5px 2px;margin-left: 13px;float: left;"><input type="button" id="brutehash" value="Hash" style="
-    margin: 5px 2px;
-    float: left;
-"><br>
+    <div>
+        <h3>Mode : </h3>
+        <input id="toggle" value="Disable Active Mode" type="button">
+        <input type="button" id="buster" value="Enable Window Mode">
+        <input type="button" id="passive" value="Disable Passive Mode"><br>
+        <h3>Brute Gadgets : </h3><input type="button" id="brute" value="Search"><input type="button" id="brutehash" value="Hash"><br>
     </div>
 
-    <h3 id="found-label" style="margin-bottom: 16px;display: block;clear: both;">Found (<a href="#" id="clear" value="Clear">Clear</a>) </h3>
-    <table id="found-list" style="display: block; width: 100%;">
+    <h3 id="found-label">Found (<a href="#" id="clear" value="Clear">Clear</a>) </h3>
+    <table id="found-list">
         <tbody>
             <tr>
                 <th></th>

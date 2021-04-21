@@ -37,7 +37,6 @@ setBadgeCount(0);
 /* setup listeners */
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     // found.add(msg);
-    console.log(333);
     found.get().then((res) => {
         console.log(res);
         setBadgeCount(res.length);
@@ -45,7 +44,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 });
 
 chrome.extension.onConnect.addListener((port) => {
-    console.log("[>] New Session ", port);
+    console.log("New Session ", port);
     if (port.name == "logger") {
         port.onMessage.addListener((msg) => {
             if (msg == "clearLog") {

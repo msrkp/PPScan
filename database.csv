@@ -25,9 +25,9 @@ V4Fire Core [1]|regex|(\w+\s*=\s*\/\\\[\(\[\^\\\]\]\*\)\]\/g)
 jQuery Sparkle [1]|regex|(\w+\s*=\s*\w+\.split\(\/\\\&\(amp\\\;\)\?\/\))
 
 # jQuery query-object
-jQuery Query-Object [1]|regex|(\/\^\(\[\^\[\]\+\)\(\\\[\.\*\\\]\)\?\$\/\.exec\(\s*\w+\s*\))
-jQuery Query-Object [2]|text|/* jQuery querystring plugin */
-jQuery Query-Object [3]|text|/^([^[]+?)(\[.*\])?$/.exec(
+jQuery Query Object [1]|regex|(\/\^\(\[\^\[\]\+\)\(\\\[\.\*\\\]\)\?\$\/\.exec\(\s*\w+\s*\))
+jQuery Query Object [2]|text|/* jQuery querystring plugin */
+jQuery Query Object [3]|text|/^([^[]+?)(\[.*\])?$/.exec(
 
 # queryToObject
 queryToObject [1]|regex|(\.match\(\/\(\^\[\^\[\]\+\)\(\\\[\.\*\\\]\$\)\?\/\))
@@ -71,7 +71,7 @@ Unknown Lib [5]|regex|(\(\[\^\\\\\[\^\\\\\]\]\+\)\(\(\\\\\[\(\^\\\\\[\^\\\\\]\)\
 # Unknown Lib 6 (inbound setUrlParams)
 Unknown Lib [6]|regex|([\'\"]-1[\'\"]\s*==\s*\w+\[1\]\.indexOf\([\'\"]\[[\'\"]\))
 
-# Unknown Lib 7 (not work in https://utteranc.es/client.js:1:501)
+# Unknown Lib 7 (not worked in https://utteranc.es/client.js:1:501)
 Unknown Lib [7]|text|/([^&=]+)=?([^&]*)/g
 
 # Unknown Lib 8

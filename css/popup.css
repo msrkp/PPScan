@@ -47,7 +47,7 @@ th:nth-child(1) {
     border-left: 1px solid #626970;
 }
 
-th:nth-child(3) {
+th:nth-child(4) {
     border-right: 1px solid #626970;
 }
 
@@ -56,29 +56,79 @@ td {
     padding: 2px 4px;
 }
 
-td:nth-child(1),
-td:nth-child(2) {
+td:nth-child(2),
+td:nth-child(3) {
     text-align: center;
 }
 
-td:nth-child(1) {
+td:nth-child(2) {
     width: 140px;
 }
 
-td:nth-child(1)>a {
+td:nth-child(2)>a {
     font-weight: bold;
     color: black;
     padding: 0px 8px;
 }
 
-td:nth-child(3)>a {
+td:nth-child(4)>a {
     color: black;
 }
 
-td:nth-child(2) {
+td:nth-child(3) {
     width: 150px;
 }
 
-td:nth-child(3) {
+td:nth-child(4) {
     width: 300px;
+}
+
+#passive {
+    float: left;
+    display: block;
+    margin: 5px 3;
+}
+
+#toggle {
+    margin: 5px 2px 6px 2px;
+    margin-left: 12px;
+    float: left;
+}
+
+div>h3 {
+    float: left;
+    margin: 4px 2px;
+    clear: both;
+}
+
+#buster {
+    display: none;
+    float: left;
+    margin: 5px 1px;
+}
+
+body>div {
+    min-width: 700px;
+}
+
+#brutehash {
+    margin: 5px 2px;
+    float: left;
+}
+
+#brute {
+    margin: 5px 2px;
+    margin-left: 13px;
+    float: left;
+}
+
+#found-list {
+    display: block;
+    width: 100%;
+}
+
+#found-label {
+    margin-bottom: 16px;
+    display: block;
+    clear: both;
 }

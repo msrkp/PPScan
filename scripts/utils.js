@@ -5,7 +5,7 @@ const blacklist = [
     "https://www.google.com/pagead/conversion.js:28:76",
     "https://www.googleadservices.com/pagead/conversion_async.js:19:76",
     "https://www.googleadservices.com/pagead/conversion.js:28:76",
-    "https://fast.wistia.com/assets/external/E-v1.js", // is not vulnerable
+    "https://fast.wistia.com/assets/external/E-v1.js", // not vulnerable
 ];
 
 let database = [];
@@ -41,7 +41,7 @@ const patternMatch = (response, database) => {
     return [result, matches];
 };
 
-const downloadDB = (url) => {
+const fetchDB = (url) => {
     return new Promise((resolve, reject) => {
         fetch(url)
             .then((response) => response.text())
@@ -87,7 +87,7 @@ const download = (url) => {
     });
 };
 
-const check = ({ requestUri, initiator }) => {
+const checkResource = ({ requestUri, initiator }) => {
     if (DEBUG) {
         console.log(`[%] ${requestUri}`);
     }
@@ -130,13 +130,13 @@ const filter = {
 
 const scan = ({ method, url, initiator }) => {
     // if (method == "GET") {
-    check({ requestUri: url, initiator });
+    checkResource({ requestUri: url, initiator });
     // }
 };
 
 const updateDB = () => {
     if (!database.length) {
-        downloadDB(databaseUrl)
+        fetchDB(databaseUrl)
             .then((_database) => {
                 database = _database;
                 chrome.webRequest.onCompleted.addListener(scan, filter, []);
