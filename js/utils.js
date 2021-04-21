@@ -114,9 +114,11 @@ const checkResource = ({ requestUri, initiator }) => {
                     return;
                 }
 
-                InsertQuery(PASV_STORE, { initiator, type: name, file: requestUri, linecol, updated_at: Date.now(), checked: false })
-                    .then(count => {
-                        setBadgeCount(count);
+                const data = { initiator, type: name, file: requestUri, linecol, updated_at: Date.now(), checked: 0 };
+
+                InsertOne(PASV_STORE, data)
+                    .then(() => {
+                        updateBadgeCount(PASV_STORE);
                     });
             });
         });
@@ -129,9 +131,11 @@ const filter = {
 };
 
 const scan = ({ method, url, initiator }) => {
-    // if (method == "GET") {
-    checkResource({ requestUri: url, initiator });
-    // }
+    chrome.storage.sync.get("passive", ({ passive }) => {
+        if (passive) { // should check if URL navigated to script
+            checkResource({ requestUri: url, initiator });
+        }
+    });
 };
 
 const updateDB = () => {
@@ -142,15 +146,6 @@ const updateDB = () => {
                 chrome.webRequest.onCompleted.addListener(scan, filter, []);
             })
             .catch((e) => console.log(e));
-    }
-};
-
-const setBadgeCount = (len) => {
-    if (len != 0) {
-        chrome.browserAction.setBadgeText({ text: "" + len });
-        chrome.browserAction.setBadgeBackgroundColor({ color: "#f00" });
-    } else {
-        chrome.browserAction.setBadgeText({ text: "" });
     }
 };
 

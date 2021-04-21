@@ -62,7 +62,7 @@ td:nth-child(3) {
 }
 
 td:nth-child(2) {
-    width: 140px;
+    max-width: 170px;
 }
 
 td:nth-child(2)>a {
@@ -76,11 +76,12 @@ td:nth-child(4)>a {
 }
 
 td:nth-child(3) {
-    width: 150px;
+    max-width: 150px;
 }
 
 td:nth-child(4) {
-    width: 300px;
+    max-width: 410px;
+    word-break: break-all;
 }
 
 #passive {
@@ -131,4 +132,9 @@ body>div {
     margin-bottom: 16px;
     display: block;
     clear: both;
+}
+
+button {
+    font-size: 10px;
+    float: right;
 }

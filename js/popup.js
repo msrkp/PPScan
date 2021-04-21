@@ -4,18 +4,18 @@ var port = chrome.extension.connect({
 
 chrome.browserAction.setBadgeBackgroundColor({ color: '#777' });
 
-function logger() {
-    chrome.storage.sync.get("toggle", function(data) {
+window.onload = () => {
+    chrome.storage.sync.get("toggle", (data) => {
         document.getElementById("toggle").value = data.toggle ? "Disable Active Mode" : "Enable Active Mode";
     });
-    chrome.storage.sync.get("buster", function(data) {
+    chrome.storage.sync.get("buster", (data) => {
         document.getElementById("buster").value = data.buster ? "Disable Window Mode" : "Enable Window Mode";
     });
-    chrome.storage.sync.get("passive", function(data) {
+    chrome.storage.sync.get("passive", (data) => {
         document.getElementById("passive").value = data.passive ? "Disable Passive Mode" : "Enable Passive Mode";
     });
-    document.getElementById("toggle").onclick = function() {
-        chrome.storage.sync.get("toggle", function(data) {
+    document.getElementById("toggle").onclick = () => {
+        chrome.storage.sync.get("toggle", (data) => {
             if (data.toggle) {
                 chrome.storage.sync.set({ "toggle": false });
                 chrome.storage.sync.set({ "buster": false });
@@ -28,8 +28,8 @@ function logger() {
             }
         });
     }
-    document.getElementById("buster").onclick = function() {
-        chrome.storage.sync.get("buster", function(data) {
+    document.getElementById("buster").onclick = () => {
+        chrome.storage.sync.get("buster", (data) => {
             if (data.buster) {
                 chrome.storage.sync.set({ "buster": false });
                 document.getElementById("buster").value = "Enable Window Mode";
@@ -40,8 +40,8 @@ function logger() {
         });
     }
 
-    document.getElementById("passive").onclick = function() {
-        chrome.storage.sync.get("passive", function(data) {
+    document.getElementById("passive").onclick = () => {
+        chrome.storage.sync.get("passive", (data) => {
             if (data.passive) {
                 chrome.storage.sync.set({ "passive": false });
                 document.getElementById("passive").value = "Enable Passive Mode";
@@ -52,44 +52,63 @@ function logger() {
         });
     }
 
-    document.getElementById("brute").onclick = function() {
+    document.getElementById("brute").onclick = () => {
         chrome.tabs.executeScript(null, {
             code: `document.dispatchEvent(new CustomEvent('TriggerBrute'));`
         });
     }
 
-    document.getElementById("brutehash").onclick = function() {
+    document.getElementById("brutehash").onclick = () => {
         chrome.tabs.executeScript(null, {
             code: `document.dispatchEvent(new CustomEvent('TriggerBruteHash'));`
         });
     }
 
-    document.getElementById("clear").onclick = function() {
+    document.getElementById("clear").onclick = () => {
         port.postMessage('clearLog');
     }
-
-    port.postMessage('send found urls');
-
-    port.onMessage.addListener(function(found) {
-        listFound(found['items']);
-    });
-
-
 }
 
-window.onload = logger
+const table = document.getElementById('found-list');
 
-const foundLabel = document.getElementById('found-label');
-const foundList = document.getElementById('found-list');
+request.onsuccess = (event) => {
+    db = request.result;
 
-function listFound(found) {
-    console.log(found);
-    // foundList.innerHTML = '';
-    foundLabel.style.display = foundList.style.display = found.length > 0 ? 'block' : 'none';
+    selectByLimit(PASV_STORE, 1000)
+        .then(items => {
+            items.forEach((element) => {
+                var tr = document.createElement("tr");
 
-    found.slice().reverse().forEach((line, index) => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `<td>${found.length - index}</td><td><a target="_blank" href="${line['domain']}">${new URL(line['domain']).hostname}</a></td><td>${line['type']}</td><td><a target="_blank" href="${line['file']}">${line['file']}:${line['lineCol']}</a></td>`;
-        foundList.appendChild(tr);
-    });
-}
+                var td = document.createElement("td");
+                td.innerText = element.index;
+                tr.appendChild(td);
+
+                var td = document.createElement("td");
+                var anchor = document.createElement("a");
+                anchor.target = '_blank';
+                anchor.href = element.initiator;
+                anchor.innerText = new URL(element['initiator']).hostname;
+                td.appendChild(anchor);
+                tr.appendChild(td);
+
+                var td = document.createElement("td");
+                td.innerText = element.type;
+                tr.appendChild(td);
+
+                var td = document.createElement("td");
+                var anchor = document.createElement("a");
+                anchor.target = '_blank';
+                anchor.href = element['file'];
+                anchor.innerText = element['file'] + element['linecol']
+                td.appendChild(anchor);
+                tr.appendChild(td);
+
+                table.appendChild(tr);
+            });
+        });
+
+    updateToChecked(PASV_STORE)
+        .then(() => {
+            updateBadgeCount(PASV_STORE);
+        });
+};

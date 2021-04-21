@@ -21,13 +21,13 @@
             "<all_urls>"
         ],
         "js": [
-            "scripts/content_script.js"
+            "js/content_script.js"
         ],
         "all_frames": true
     }],
     "web_accessible_resources": [
         "pages/iframe.html",
-        "scripts/exp.js"
+        "js/exp.js"
     ],
     "browser_action": {
         "default_popup": "pages/popup.html"
