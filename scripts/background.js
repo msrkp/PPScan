@@ -1,7 +1,6 @@
 const databaseUrl = chrome.extension.getURL("/database.csv");
 
 /*  initialize */
-// const found = new Set();
 const found = {
     get() {
         return new Promise((resolve) => {

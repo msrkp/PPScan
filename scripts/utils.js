@@ -108,16 +108,16 @@ const checkResource = ({ requestUri, initiator }) => {
                 const preChunk = res.substr(0, match[i].index).split(/\n/);
                 const line = preChunk.length;
                 const column = preChunk[preChunk.length - 1].length;
-                const lineCol = `${line}:${column}`;
+                const linecol = `${line}:${column}`;
 
-                if (blacklist.indexOf(requestUri + ":" + lineCol) != -1) {
+                if (blacklist.indexOf(requestUri + ":" + linecol) != -1) {
                     return;
                 }
 
-                found.add({ domain: initiator, type: name, file: requestUri, lineCol });
-                found.get().then((res) => {
-                    setBadgeCount(res.length);
-                });
+                InsertQuery(PASV_STORE, { initiator, type: name, file: requestUri, linecol, updated_at: Date.now(), checked: false })
+                    .then(count => {
+                        setBadgeCount(count);
+                    });
             });
         });
     }
