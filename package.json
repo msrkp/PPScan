@@ -1,0 +1,23 @@
+{
+  "name": "PPScan",
+  "version": "1.0.0",
+  "description": "Client Side Protype pollution Scanner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/posix-lee/PPScan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/posix-lee/PPScan/issues"
+  },
+  "homepage": "https://github.com/posix-lee/PPScan#readme",
+  "devDependencies": {
+    "eslint": "^7.24.0"
+  }
+}
