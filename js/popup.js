@@ -2,8 +2,6 @@ var port = chrome.extension.connect({
     name: "logger"
 });
 
-chrome.browserAction.setBadgeBackgroundColor({ color: '#777' });
-
 window.onload = () => {
     chrome.storage.sync.get("toggle", (data) => {
         document.getElementById("toggle").value = data.toggle ? "Disable Active Mode" : "Enable Active Mode";
