@@ -38,7 +38,8 @@ request.onsuccess = (event) => {
 const setBadgeCount = (len) => {
     if (len != 0) {
         chrome.browserAction.setBadgeText({ text: "" + len });
-        chrome.browserAction.setBadgeBackgroundColor({ color: "#f00" });
+        chrome.browserAction.setBadgeBackgroundColor({ color: "#555" });
+        chrome.browserAction
     } else {
         chrome.browserAction.setBadgeText({ text: "" });
     }
