@@ -8,12 +8,12 @@ CanJS deparam [1]|regex|(\/\(\[\^\\\[\\\]\]\+\)\|\(\\\[\\\]\)\/g\s*)
 MooTools More [1]|regex|(\.substr\(0,\s*\w+\s*-\s*1\)\.match\(\/\(\[\^\\\]\\?\[\]\+\|\(\\B\)\(\?\=\\\]\)\)\/g\))
 
 # jQuery BBQ
-jQuery BBQ [1]|regex|(\$\.each\(\s*\w+\.replace\(\s*\/\\\+\/g\s*,\s*[\'\"] [\'\"]\s*\)\.split\(\s*[\'\"]&[\'\"]\s*\))
+jQuery BBQ [1]|regex|(\s*\/\\\[\/\.test\(\s*\w+\[0\]\s*\)\s*&&\s*\/\\\]\$\/\.test\(\s*\w+\[\s*\w+\s*\]\s*\)\s*)
 jQuery BBQ [2]|regex|jQuery BBQ
 
 # deparam
 deparam [1]|regex|(\s*\/\\\[\/\.test\(\s*\w+\[0\]\s*\)\s*&&\s*\/\\\]\$\/\.test\(\s*\w+\[\s*\w+\s*\]\s*\)\s*)
-deparam [2]|regex|([\'\"]\[\][\'\"]\s*===\s*\w+\s*\?\s*\w+\.push\(\w+\)\s*:\s*\w+\[\w+\]\s*=\s*\w+)
+deparam [2]|regex|(['"]\[\]['"]\s*===\s*\w+\s*\?\s*\w+\.push\(\w+\)\s*:\s*\w+\[\w+\]\s*=\s*\w+)
 
 # backbone query parameters
 backbone-query-parameters [2]|regex|(\s*(\w+)\s*=\s*\2\[(\w+)\]\s*=\s*\2\[\3\]\s*\|\|\s*\{\})
@@ -51,13 +51,13 @@ flow.io [1]|regex|(\w+\s*=\s*\/\\\[\?\(\[\^\\\]\[\]\+\)\\\]\?\/g)
 jQuery.parseParams.js [1]|regex|(\w+\s*=\s*\w+\.split\(\/\\\.\(\.\+\)\?\/\)\[1\])
 
 # wishpond (decodeQueryString)
-wishpond [1]|regex|(\w+\s*=\s*\w+\(\w+\[1\]\.slice\(\w+\s*\+\s*1,\s*\w+\[1\]\.indexOf\([\'\"]\][\'\"],\s*\w+\)\)\))
+wishpond [1]|regex|(\w+\s*=\s*\w+\(\w+\[1\]\.slice\(\w+\s*\+\s*1,\s*\w+\[1\]\.indexOf\(['"]\]['"],\s*\w+\)\)\))
 
 # Unknown Lib 1
 Unknown Lib [1]|regex|(\w+\.replace\(\s*[\'\"]\[\][\'\"]\s*,\s*[\'\"]\[[\'\"]\.concat\()
 
 # Unknown Lib 2 (JS equivalent of PHPs parse_str)
-Unknown Lib [2]|regex|(\w+\s*=\s*\w+\.slice\(0,\s*\w+\.indexOf\([\'\"]\\x?0?0[\'\"]\)\))
+Unknown Lib [2]|regex|(\w+\s*=\s*\w+\.slice\(0,\s*\w+\.indexOf\(['"]\\x?0?0['"]\)\))
 
 # Unknown Lib 3
 Unknown Lib [3]|regex|("\[\]"\s*===\s*\w+\.substring\(\w+\.length\s*-\s*2\)[\s\?\)\(]*(?:\w+\[)?\w+\s*=\s*\w+\.substring\(0,\s*\w+\.length\s*-\s*2\))
@@ -82,4 +82,36 @@ Unknown Lib [9][1]|text|queryParamsToObject
 Unknown Lib [9][2]|text|/^[\{\[].*[\}\]]$/
 
 # Unknown Lib 10 : https://d2aly8ugr9c5td.cloudfront.net/javascript/loyalty_api_iframe_2021_04_19_08_15.js
-Unknown Lib[10]|text|(String(e).split(/&|;/)
+Unknown Lib [10]|text|(String(e).split(/&|;/)
+
+##### updated at 2021/04/29
+
+# Unknown inbound setUrlParams
+inbound cta|regex|(['"]-1['"]\s*==\s*\w+\[1\]\.indexOf\(['"]\[['"]\))
+
+# Unknown lib_4
+Unknown lib_4|regex|(\w+\s*=\s*\w+\.split\(['"]\.['"]\)\s*[;,]\s*\w+\s*=\s*\w+\.pop\(\)\s*[;,]\s*\w+\s*=\s*\w+\.reduce\()
+
+# Old mithril.js
+mithril.js|regex|(\w+\s*=\s*\w+\.split\(\/\\\]\\\[\?\|\\\[\/\)[\w\s=\(\;\,<\-]*\w+\.indexOf\(['"]\[['"]\))
+
+# builder.io QueryString.deepen
+builder.io|regex|(\w+\s*=\s*\w+\.split\(['"]\.['"]\)[\s;,\w]+=\s*\w+\.pop\(\)[!\s;,\w]+\(\w+\.length\))
+
+# Unknown lib_5
+Unknown lib_5|regex|(\w+\s*=\s*\w+\.indexOf\(['"]\]['"],\s*\w+\)[\s\w;,]+=\s*decodeURIComponent\(\w+\.substring\(\w+\s*\+\s*1)
+
+# arg.js
+arg.js|regex|(\w+\.replace\(['"]\]['"],\s*['"]['"]\)[\w\s;,\(]+\.search\(\/\[\\\.\\\[\]\/\))
+
+# davis.js
+davis.js [1]|regex|(\/\^\(\\w\+\)\\\[\(\\w\+\)\?\\\]\(\\\[\\\]\)\?\/)
+
+# soundcloud Unknown lib_6
+soundcloud Unknown lib_6|regex|(\.match\(\/\^\[\\\[\\\]\]\*\(\[\^\\\[\\\]\]\+\)\\\]\*\(\.\*\)\/\))
+
+# quiq
+quiq|regex|((\w+)\s*=\s*\w+\.split\(['"]\.['"]\)[\w+;,\s\(\)\.\{=\[\]'"]+<\s*\2\.length[\w+;,\s\(\)\.\{=]+\2\[\w+\][\w+;,\s\(\)\.\{=/]+\2\.length\s*-\s*1)
+
+# rakuten
+rakuren|regex|(\/\^\(\[\$a-zA-z_\]\[\$a-zA-z0-9\]\*\)\\\[\(\[\$a-zA-z0-9\]\*\)\\\]\$\/)
