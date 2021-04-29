@@ -10,8 +10,6 @@ chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT
     }
 );
 
-// currentHost = 'jspinde.com';
-
 window.onload = () => {
     chrome.storage.sync.get("toggle", (data) => {
         document.getElementById("toggle").value = data.toggle ? "Disable Active Mode" : "Enable Active Mode";
