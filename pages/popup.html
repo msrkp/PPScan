@@ -1,125 +1,20 @@
 <html>
 
 <head>
-    <style>
-        div input {
-            display: inline-block;
-        }
-        
-        input {
-            font-size: 12px;
-        }
-        
-        #found-label {
-            display: block;
-            float: left;
-            margin: 4px 2px 2px;
-        }
-        
-        #clear {
-            color: #838383;
-        }
-        
-        #found-list {
-            float: left;
-            border-collapse: collapse;
-            clear: both;
-            width: calc(100% - 17px);
-            font-size: 9px;
-            font-family: sans-serif;
-            margin-bottom: 14px;
-            display: none;
-            table-layout: fixed;
-        }
-        
-        table {
-            table-layout: fixed;
-        }
-        
-        th {
-            background: #e9e9e9;
-            color: #363636;
-            text-transform: capitalize;
-        }
-        
-        th {
-            padding: 5px 7px;
-            border: 1px solid #626970;
-        }
-        
-        th:nth-child(1) {
-            border-left: 1px solid #626970;
-        }
-        
-        th:nth-child(3) {
-            border-right: 1px solid #626970;
-        }
-        
-        td {
-            border: 1px solid black;
-            padding: 2px 4px;
-        }
-        
-        td:nth-child(1),
-        td:nth-child(2) {
-            text-align: center;
-        }
-        
-        td:nth-child(1) {
-            width: 140px;
-        }
-        
-        td:nth-child(1)>a {
-            font-weight: bold;
-            color: black;
-            padding: 0px 8px;
-        }
-        
-        td:nth-child(3)>a {
-            color: black;
-        }
-        
-        td:nth-child(2) {
-            width: 150px;
-        }
-        
-        td:nth-child(3) {
-            width: 300px;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/popup.css" />
 </head>
 
 <body>
-    <div style="
-    min-width: 700px;
-    ">
-        <h3 style="
-    float: left;
-    margin: 4px 2px;
-">Mode : </h3>
-        <input id="toggle" value="Disable Active Mode" type="button" style="
-    margin: 5px 2px 6px 2px;
-    margin-left: 12px;
-    float: left;
-">
-        <input type="button" id="buster" style="display: none;float: left;margin: 5px 1px;" value="Enable Window Mode">
-        <input type="button" id="passive" value="Disable Passive Mode" style="
-    float: left;
-    display: block;
-    margin: 5px 3;
-"><br>
-        <h3 style="
-    float: left;
-    margin: 4px 2px;
-    clear: both;
-">Brute Gadgets : </h3><input type="button" id="brute" value="Search" style="margin: 5px 2px;margin-left: 13px;float: left;"><input type="button" id="brutehash" value="Hash" style="
-    margin: 5px 2px;
-    float: left;
-"><br>
+    <div>
+        <h3>Mode : </h3>
+        <input id="toggle" value="Disable Active Mode" type="button">
+        <input type="button" id="buster" value="Enable Window Mode">
+        <input type="button" id="passive" value="Disable Passive Mode"><br>
+        <h3>Brute Gadgets : </h3><input type="button" id="brute" value="Search"><input type="button" id="brutehash" value="Hash"><br>
     </div>
 
-    <h3 id="found-label" style="margin-bottom: 16px;display: block;clear: both;">Found (<a href="#" id="clear" value="Clear">Clear</a>) </h3>
-    <table id="found-list" style="display: block; width: 100%;">
+    <h3 id="found-label">Found (<a href="#" id="clear" value="Clear">Clear</a>) </h3>
+    <table id="found-list">
         <tbody>
             <tr>
                 <th></th>
@@ -129,7 +24,8 @@
             </tr>
         </tbody>
     </table>
-    <script type="text/javascript" src="/scripts/popup.js"></script>
+    <script type="text/javascript" src="/js/database.js"></script>
+    <script type="text/javascript" src="/js/popup.js"></script>
 </body>
 
 </html>

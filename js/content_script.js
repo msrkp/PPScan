@@ -30,15 +30,12 @@ document.addEventListener('TriggerBruteHash', () => {
     document.body.appendChild(iframe);
 });
 
-chrome.storage.sync.get("toggle", function(data) {
+chrome.storage.sync.get("toggle", (data) => {
     if (data.toggle) {
         var inject = function check() {
-            var logger = function(found) {
-                var asdf = new CustomEvent('PPLog', { 'detail': found });
-                document.dispatchEvent(asdf);
+            var logger = function(url) {
+                document.dispatchEvent(new CustomEvent('ppscan', { detail: url }));
             };
-
-
             if (location.href.search("dummy") != -1) {
                 // hack for frame busting
                 loc = location.href;
@@ -79,7 +76,6 @@ chrome.storage.sync.get("toggle", function(data) {
                     console.log(`%c--------------------Found one------------------\n${location.href}`, `color:red`);
                     logger(location.href);
                     clearInterval(timerID);
-
                 }
             }, 5 * 1000);
         }
@@ -99,9 +95,9 @@ chrome.storage.sync.get("toggle", function(data) {
             document.body.appendChild(iframe);
         }
 
-
-        document.addEventListener('PPLog', function(event) {
-            chrome.runtime.sendMessage(event.detail);
+        document.addEventListener('ppscan', function({ detail: url }) {
+            var hostname = new URL(url).hostname;
+            chrome.runtime.sendMessage({ hostname, url });
         });
 
         inject = '(' + inject + ')()';
