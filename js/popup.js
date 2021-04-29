@@ -87,19 +87,17 @@ request.onsuccess = (event) => {
             items.sort(item => {
                 var hostname = new URL(item['initiator']).hostname;
                 if (hostname == currentHost) {
-                    item.priority = 1;
                     return -1;
                 } else {
                     return 1;
                 }
             });
-            console.log(items);
             items.forEach((element) => {
                 var tr = document.createElement("tr");
-                if (element.priority) {
+
+                var hostname = new URL(element['initiator']).hostname;
+                if (hostname == currentHost) {
                     element.index = '-';
-                    // tr.style.background = '#e9e9e9';
-                    // tr.style['font-weight'] = 'bold';
                 }
 
                 var td = document.createElement("td");
