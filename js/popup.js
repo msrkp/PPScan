@@ -2,7 +2,15 @@ var port = chrome.extension.connect({
     name: "logger"
 });
 
-chrome.browserAction.setBadgeBackgroundColor({ color: '#777' });
+var currentHost;
+
+chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT },
+    function(tabs) {
+        currentHost = new URL(tabs[0].url).hostname;
+    }
+);
+
+// currentHost = 'jspinde.com';
 
 window.onload = () => {
     chrome.storage.sync.get("toggle", (data) => {
@@ -76,8 +84,23 @@ request.onsuccess = (event) => {
 
     selectByLimit(PASV_STORE, 1000)
         .then(items => {
+            items.sort(item => {
+                var hostname = new URL(item['initiator']).hostname;
+                if (hostname == currentHost) {
+                    item.priority = 1;
+                    return -1;
+                } else {
+                    return 1;
+                }
+            });
+            console.log(items);
             items.forEach((element) => {
                 var tr = document.createElement("tr");
+                if (element.priority) {
+                    element.index = '-';
+                    // tr.style.background = '#e9e9e9';
+                    // tr.style['font-weight'] = 'bold';
+                }
 
                 var td = document.createElement("td");
                 td.innerText = element.index;
