@@ -21,7 +21,7 @@ input {
     border-collapse: collapse;
     clear: both;
     width: calc(100% - 17px);
-    font-size: 9px;
+    font-size: 12px;
     font-family: sans-serif;
     margin-bottom: 14px;
     display: none;

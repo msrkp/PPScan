@@ -2,6 +2,14 @@ var port = chrome.extension.connect({
     name: "logger"
 });
 
+var currentHost;
+
+chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT },
+    function(tabs) {
+        currentHost = new URL(tabs[0].url).hostname;
+    }
+);
+
 window.onload = () => {
     chrome.storage.sync.get("toggle", (data) => {
         document.getElementById("toggle").value = data.toggle ? "Disable Active Mode" : "Enable Active Mode";
@@ -74,8 +82,21 @@ request.onsuccess = (event) => {
 
     selectByLimit(PASV_STORE, 1000)
         .then(items => {
+            items.sort(item => {
+                var hostname = new URL(item['initiator']).hostname;
+                if (hostname == currentHost) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            });
             items.forEach((element) => {
                 var tr = document.createElement("tr");
+
+                var hostname = new URL(element['initiator']).hostname;
+                if (hostname == currentHost) {
+                    element.index = '-';
+                }
 
                 var td = document.createElement("td");
                 td.innerText = element.index;
