@@ -44,17 +44,17 @@ chrome.storage.sync.get("toggle", function(data) {
                 loc = location.href;
                 if (loc.indexOf('e32a5ec9c99') >= 0 && loc.search('a0def12bce') == -1) {
                     // setTimeout(function() {
-                    if ((Object.prototype.e32a5ec9c99 == "ddcb362f1d60")) {
+                    if ((typeof(Object.prototype.e32a5ec9c99)!='undefined')) {
                         logger(location.href);
                     }
                     var url = new URL(location.origin + location.pathname);
-                    url.hash = "__proto__[a0def12bce]=ddcb362f1d60&__proto__.a0def12bce=ddcb362f1d60&dummy"
+                    url.hash = "__proto__[a0def12bce]=ddcb362f1d60&__proto__.a0def12bce=ddcb362f1d60&__proto__=&0[a0def12bce]=ddcb362f1d60&dummy"
                     location = url.href;
 
                     // }, 5 * 1000)
                 } else if (loc.search('a0def12bce') != -1) {
                     setTimeout(function() {
-                        if ((Object.prototype.a0def12bce == "ddcb362f1d60")) {
+                        if ((typeof(Object.prototype.a0def12bce)!='undefined')) {
                             logger(location.href);
                         }
                         window.close();
@@ -63,19 +63,21 @@ chrome.storage.sync.get("toggle", function(data) {
                     var url = new URL(loc);
                     url.searchParams.append('__proto__[e32a5ec9c99]', 'ddcb362f1d60')
                     url.searchParams.append('__proto__.e32a5ec9c99', 'ddcb362f1d60')
+                    url.searchParams.append('__proto__','')
+                    url.searchParams.append('0[a0def12bce]','ddcb362f1d60')
                     location = url.href;
                 }
             }
 
             window.onload = function() {
-                if ((Object.prototype.e32a5ec9c99 == "ddcb362f1d60" || Object.prototype.a0def12bce == "ddcb362f1d60")) {
+                if ((Object.prototype.e32a5ec9c99 == "ddcb362f1d60" || Object.prototype.a0def12bce == "ddcb362f1d60" || typeof(Object.prototype.a0def12bce)!='undefined' || typeof(Object.prototype.e32a5ec9c99)!='undefined')) {
                     console.log(`%c--------------------Found one------------------\n${location.href}`, `color:red`);
                     logger(location.href);
                 }
             }
 
             var timerID = setInterval(function() {
-                if ((Object.prototype.e32a5ec9c99 == "ddcb362f1d60" || Object.prototype.a0def12bce == "ddcb362f1d60")) {
+                if ((Object.prototype.e32a5ec9c99 == "ddcb362f1d60" || Object.prototype.a0def12bce == "ddcb362f1d60" || typeof(Object.prototype.a0def12bce)!='undefined' || typeof(Object.prototype.e32a5ec9c99)!='undefined')) {
                     console.log(`%c--------------------Found one------------------\n${location.href}`, `color:red`);
                     logger(location.href);
                     clearInterval(timerID);
