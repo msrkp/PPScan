@@ -1,3 +1,5 @@
+var chrome = browser;
+
 var PAYLOADS = [
     // ['XSS Prototype #1',  'x[__proto__][e32a5ec9c99]', 'ddcb362f1d60', ],
     // ['XSS Prototype #2',  'x.__proto__.e32a5ec9c99','ddcb362f1d60', ],

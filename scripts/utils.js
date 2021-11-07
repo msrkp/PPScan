@@ -1,3 +1,5 @@
+var chrome = browser;
+
 const DEBUG = false;
 
 const blacklist = [
@@ -107,8 +109,7 @@ const check = ({ requestUri, initiator }) => {
                 if (blacklist.indexOf(requestUri + ':' + lineCol) != -1) {
                     return;
                 }
-
-                found.add(JSON.stringify({ domain: initiator, type: name, file: requestUri, lineCol }))
+                found.add(JSON.stringify({ domain: new URL(initiator).origin, type: name, file: requestUri, lineCol }))
                 setBadgeCount(found.size);
             });
         })
@@ -120,9 +121,9 @@ const filter = {
     types: ["script"]
 };
 
-const scan = ({ method, url, initiator }) => {
+const scan = (request) => {
     // if (method == "GET") {
-    check({ requestUri: url, initiator });
+    check({ requestUri: request.url, initiator: request.originUrl });
     // }
 };
 
