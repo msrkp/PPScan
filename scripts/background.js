@@ -7,7 +7,8 @@ setBadgeCount(0);
 
 /* setup listeners */
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-    found.add(msg);
+    sourceUrl = new URL(msg);
+    found.add(JSON.stringify({ domain: sourceUrl.origin, type: 'Active Mode', file: sourceUrl.href, lineCol: 0 }));
     setBadgeCount(found.size);
 });
 
