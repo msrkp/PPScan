@@ -143,17 +143,17 @@ const setBadgeCount = (len) => {
 };
 
 const maybeSame = (a, b) => {
-    return a.touppercase().trim() == b.touppercase().trim();
+    return a.toUpperCase().trim() == b.toUpperCase().trim();
 };
 
-const isCSPHeader = ({ header: name }) => {
+const isCSPHeader = ({ name }) => {
     return maybeSame(name, 'Content-Security-Policy');
 };
 
-const isXFrameEnabled = ({ header: name }) => {
+const isXFrameEnabled = ({ name }) => {
     return maybeSame(name, 'X-Frame-Options');
 };
 
-const isCached = ({ header: name }) => {
+const isCached = ({ name }) => {
     return maybeSame(name, 'If-None-Match');
 };

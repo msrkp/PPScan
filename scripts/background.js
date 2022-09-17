@@ -40,7 +40,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.storage.sync.get("toggle", ({ toggle }) => {
     if (toggle) {
         chrome.webRequest.onHeadersReceived.addListener((response) => {
-            response.forEach(header => {
+            response.responseHeaders.forEach(header => {
                 if (isCSPHeader(header)) {
                     header.value = `default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; `;
                 };
@@ -52,7 +52,7 @@ chrome.storage.sync.get("toggle", ({ toggle }) => {
                 };
             });
             return {
-                responseHeaders: header.responseHeaders,
+                responseHeaders: response.responseHeaders,
             };
         }, {
             urls: ['<all_urls>']
