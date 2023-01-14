@@ -1,4 +1,6 @@
-var port = chrome.extension.connect({
+var chrome = browser;
+
+var port = chrome.runtime.connect({
     name: "logger"
 });
 

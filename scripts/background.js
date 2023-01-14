@@ -1,3 +1,5 @@
+var chrome = browser;
+
 const databaseUrl = chrome.extension.getURL('/database.csv');
 
 /*  initialize */
@@ -12,7 +14,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     setBadgeCount(found.size);
 });
 
-chrome.extension.onConnect.addListener((port) => {
+chrome.runtime.onConnect.addListener((port) => {
     console.log('[>] New Session ', port);
     if (port.name == "logger") {
         port.onMessage.addListener((msg) => {

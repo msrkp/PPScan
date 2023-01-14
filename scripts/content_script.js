@@ -1,3 +1,5 @@
+var chrome = browser;
+
 document.addEventListener('TriggerBrute', () => {
     var iframe = document.createElement('iframe');
     iframe.addEventListener('load', () => {
